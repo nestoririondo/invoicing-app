@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+/* style for tables */
+
+table {
+    max-width: 1000px;
+    width: 50%;
+    border-collapse: collapse;
+}
+
+table td,
+table th {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background-color: #d8d8d8;
+}
+
+/* style for form */
