@@ -1,32 +1,43 @@
-import { useState, useEffect } from 'react'
-import ClientsDropDown from './components/ClientsDropDown'
-import InvoiceList from './components/InvoiceList'
-import './App.css'
+import { useState, useEffect } from "react";
+import ClientsDropDown from "./components/ClientsDropDown";
+import InvoiceList from "./components/InvoiceList";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import SideBar from "./components/SideBar";
+import "./App.css";
 
 function App() {
-  
-  const [invoices, setInvoices] = useState([])
-  const [clients, setClients] = useState([])
+  const [invoices, setInvoices] = useState([]);
+  const [clients, setClients] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/invoices')
-      .then(response => response.json())
-      .then(data => setInvoices(data))
-  }
-  , [])
+    fetch("http://localhost:8000/invoices")
+      .then((response) => response.json())
+      .then((data) => setInvoices(data));
+  }, []);
 
   useEffect(() => {
-    fetch('http://localhost:8000/clients')
-      .then(response => response.json())
-      .then(data => setClients(data))
-  }, [])
-  
+    fetch("http://localhost:8000/clients")
+      .then((response) => response.json())
+      .then((data) => setClients(data));
+  }, []);
+
   return (
-    <>
-    <ClientsDropDown clients={clients} />
-    <InvoiceList invoices={invoices} />
-    </>
-  )
+    <div className="app">
+      <Router>
+        <SideBar />
+        <div className="content">
+          <Switch>
+            <Route path="/invoices">
+              <InvoiceList invoices={invoices} clients={clients}/>
+            </Route>
+            <Route path="/clients">
+              <ClientsDropDown clients={clients} />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </div>
+  );
 }
 
-export default App
+export default App;

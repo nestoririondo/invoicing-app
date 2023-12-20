@@ -12,11 +12,46 @@ body {
     background-color: #f4f4f4;
 }
 
-/* style for tables */
+.app {
+    display: flex;
+}
+
+.side-bar {
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    color: #fff;
+}
+
+.side-bar-links {
+    margin-top: 2rem;
+    display: grid;
+}
+
+.side-bar-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.side-bar-links a:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+.content {
+    width: calc(100% - 250px);
+    padding: 20px;
+}
 
 table {
-    max-width: 1000px;
-    width: 50%;
+    width: 100%;
     border-collapse: collapse;
 }
 
@@ -36,4 +71,18 @@ table tr:nth-child(even) {
     background-color: #d8d8d8;
 }
 
-/* style for form */
+.clients-dropdown {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.clients-dropdown select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
