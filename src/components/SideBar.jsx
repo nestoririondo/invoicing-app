@@ -4,9 +4,10 @@ const SideBar = () => {
     return (
         <div className="side-bar">
             <div className="side-bar-header">
-                <h1>Invoice App</h1>
+                <h2>Invoice App</h2>
             </div>
             <div className="side-bar-links">
+                <Link to="new-invoice">New invoice</Link>
                 <Link to="/invoices">Invoices</Link>
                 <Link to="/clients">Clients</Link>
             </div>

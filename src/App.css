@@ -18,7 +18,7 @@ body {
 
 .side-bar {
     width: 250px;
-    height: 100vh;
+    height: auto;
     background-color: #333;
     top: 0;
     left: 0;
@@ -47,7 +47,7 @@ body {
 
 .content {
     width: calc(100% - 250px);
-    padding: 20px;
+    margin: 1rem;
 }
 
 table {

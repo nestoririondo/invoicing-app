@@ -1,13 +1,25 @@
 [
     {
         "name": "ALM Translations",
-        "address": "ALM House, 20-21 Market Place, Warminster, Wiltshire, BA12 9AY",
+        "address": {
+            "street": "ALM House",
+            "number": "20-21",
+            "zip": "BA12 9AY",
+            "city": "Warminster",
+            "country": "UK"
+        },
         "UStIdNr": "DE 815 364 626",
         "id": "cl001"
     },
     {
         "name": "Tolingo",
-        "address": "Tolingo GmbH, Friedrichstraße 6, 70174 Stuttgart",
+        "address": {
+            "street": "Friedrichstraße",
+            "number": "6",
+            "zip": "70174",
+            "city": "Stuttgart",
+            "country": "DE"
+        },
         "UStIdNr": "DE 123 432 323",
         "id": "cl002"
     }

@@ -1,0 +1,27 @@
+.invoice-wrapper {
+    padding: 1rem;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}   
+
+.button-wrapper button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+}
+
+.new-invoice {
+    width: 210mm;
+    height: 297mm;
+    padding: 20mm; /* Add some padding around the content */
+    background-color: #fff; /* Set the background color to white */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to give the page some depth */
+    display: grid;
+  }
+

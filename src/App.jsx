@@ -4,6 +4,7 @@ import InvoiceList from "./components/InvoiceList";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SideBar from "./components/SideBar";
 import "./App.css";
+import NewInvoice from "./components/NewInvoice";
 
 function App() {
   const [invoices, setInvoices] = useState([]);
@@ -27,6 +28,9 @@ function App() {
         <SideBar />
         <div className="content">
           <Switch>
+            <Route path="/new-invoice">
+              <NewInvoice invoices={invoices} client={clients} setInvoices={setInvoices}/>
+            </Route>
             <Route path="/invoices">
               <InvoiceList invoices={invoices} clients={clients}/>
             </Route>
