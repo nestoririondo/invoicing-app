@@ -1,4 +1,21 @@
 .settings {
     padding: 1rem;
-    
+}
+.settings>h2{
+    margin-bottom: 1rem;
+}
+.company-data>h4 {
+    margin-bottom: 1rem;
+}
+.company-data {
+    width: 100%;
+    max-width: 400px;
+}
+
+.company-data input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
 }

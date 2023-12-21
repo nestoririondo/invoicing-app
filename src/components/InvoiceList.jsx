@@ -1,5 +1,9 @@
+import "./InvoiceList.css";
+
 const InvoiceList = ({invoices, clients}) => {
     return ( 
+        <div className="invoice-list">
+            <h2>Invoices</h2>
         <table>
             <tr>
                 <th>#</th>
@@ -20,6 +24,7 @@ const InvoiceList = ({invoices, clients}) => {
                 );
             })}
         </table>
+        </div>
     )}
  
     // invNum: "INV-2021-0002",

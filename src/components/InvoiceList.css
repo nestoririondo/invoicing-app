@@ -1,0 +1,29 @@
+.invoice-list  {
+    padding: 1rem;
+}
+
+.invoice-list>h2{
+    margin-bottom: 1rem;
+}
+
+.invoice-list>table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.invoice-list>table th {
+    text-align: left;
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+    background-color: #41da90;
+}
+
+.invoice-list>table td {
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.invoice-list>table tr:hover {
+    background-color: #ccc;
+}
