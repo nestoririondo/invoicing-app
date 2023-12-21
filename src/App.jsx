@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';
 import InvoiceList from "./components/InvoiceList";
 import SideBar from "./components/SideBar";
 import NewInvoice from "./components/NewInvoice";
@@ -12,16 +13,18 @@ function App() {
 
   const [invoices, setInvoices] = useState([
     {
-      invNum: "INV-2021-0001",
+      num: "INV-2021-0001",
       client: "Example Client 1",
-      invDate: { created: "2021-01-01", due: "2021-01-31", paid: "" },
+      id: uuidv4(),
+      date: { created: "2021-01-01", due: "2021-01-31", paid: "" },
       services: [{ service: "Tanslation", rate: 30, quantity: 10 }, { service: "Proofreading", rate: 30, quantity: 5 }],
       tax: 19,
     },
     {
-      invNum: "INV-2021-0002",
+      num: "INV-2021-0002",
       client: "Example Client 2",
-      invDate: { created: "2023-02-01", due: "2024-02-28", paid: "" },
+      id: uuidv4(),
+      date: { created: "2023-02-01", due: "2024-02-28", paid: "" },
       services: [{ service: "Tanslation", rate: 30, quantity: 15 }, { service: "Proofreading", rate: 30, quantity: 53 }],
       tax: 19,
     },
@@ -31,14 +34,14 @@ function App() {
     let localClients = localStorage.getItem('localClients');
     return localClients ? JSON.parse(localClients) : [
       {
-        id: "cl1",
+        id: "",
         name: "Example Client 1",
         address: {street: "Client Street 1", zip: "12345", city: "Berlin", country: "Germany" },
         contact: {phone: "+49 175 234 123", email: "client.email@clientcompany.com" },
         ustidnr: "DE 123 456 789",
       },
       {
-        id: "cl2",
+        id: "",
         name: "Example Client 2",
         address: {street: "Another Street 2", zip: "54321", city: "Berlin", country: "Germany" },
         contact: {phone: "+49 175 234 123", email: "client.email@clientcompany.com" },

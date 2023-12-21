@@ -9,20 +9,24 @@ const InvoiceList = ({invoices, clients}) => {
                 <th>Status</th>
             </tr>
             {invoices.map((invoice) => {
-                const client = clients.find((client) => client.id === invoice.clientId);
                 return (
                     <tr>
-                        <td>{invoice.invNum}</td>
-                        <td>
-                            {client ? client.name : <span style={{ color: 'red' }}>Client not found</span>}
-                        </td>
-                        <td>{invoice.words * invoice.rate + (invoice.words * invoice.rate * invoice.tax)} &euro;</td>
-                        <td>{invoice.due}</td>
-                        <td>{invoice.paid ? "Paid" : "Not paid"}</td>
+                        <td>{invoice.num}</td>
+                        <td>{invoice.client}</td>
+                        <td>Amount</td>
+                        <td>{invoice.date.due}</td>
+                        {invoice.date.paid ? <td className="paid">Paid</td> : <td className="unpaid">Unpaid</td>}     
                     </tr>
                 );
             })}
         </table>
     )}
  
+    // invNum: "INV-2021-0002",
+    // client: "Example Client 2",
+    // id: uuidv4(),
+    // invDate: { created: "2023-02-01", due: "2024-02-28", paid: "" },
+    // services: [{ service: "Tanslation", rate: 30, quantity: 15 }, { service: "Proofreading", rate: 30, quantity: 53 }],
+    // tax: 19,
+
 export default InvoiceList;
