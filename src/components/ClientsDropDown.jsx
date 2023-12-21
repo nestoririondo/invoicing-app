@@ -1,17 +1,14 @@
 const ClientsDropDown = ({ clients, setSelectedClient }) => {
 
-    const handleSelect = (event) => {
-        setSelectedClient(event.target.value)
-    }
-
     return ( 
-        <div>
-            <select onChange={handleSelect}>
-            {clients.map((client) => (
-                <option value={client.id}>{client.name}</option>
-            ))}
-            </select>
-        </div>
+        <select defaultValue="" onChange={(e) => setSelectedClient(e.target.value)}>
+        <option value="" disabled selected>Select client</option>
+        {clients.map((client) => (
+          <option key={client.id} value={client.id}>
+            {client.name}
+          </option>
+        ))}
+      </select>
      );
 }
  

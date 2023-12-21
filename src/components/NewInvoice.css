@@ -2,6 +2,12 @@
     padding: 1rem;
 }
 
+.invoice-h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
 .invoice-button-wrapper {
     display: flex;
     max-width: 210mm;

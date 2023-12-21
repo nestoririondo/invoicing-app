@@ -10,6 +10,7 @@ const SideBar = () => {
                 <Link to="/new-invoice">New invoice</Link>
                 <Link to="/invoices">Invoices</Link>
                 <Link to="/clients">Clients</Link>
+                <Link to="/settings">Settings</Link>
             </div>
         </div>
     )

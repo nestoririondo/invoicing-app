@@ -22,9 +22,7 @@ body {
     width: 250px;
     height: 100vh;
     background-color: #333;
-    top: 0;
-    left: 0;
-    padding: 20px;
+    padding: 2rem;
     color: #fff;
 }
 
@@ -36,10 +34,9 @@ body {
 .side-bar-links a {
     color: #fff;
     text-decoration: none;
-    padding: 10px;
+    padding: 1rem;
     border-radius: 5px;
-    margin-bottom: 10px;
-    display: block;
+    margin-bottom: 1rem;
 }
 
 .side-bar-links a:hover {
