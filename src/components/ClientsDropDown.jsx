@@ -1,9 +1,4 @@
-import React, { useState } from 'react';
-import ClientInfo from './ClientInfo'
-
-const ClientsDropDown = ({ clients }) => {
-
-    const [selectedClient, setSelectedClient] = useState('')
+const ClientsDropDown = ({ clients, setSelectedClient }) => {
 
     const handleSelect = (event) => {
         setSelectedClient(event.target.value)
@@ -12,11 +7,10 @@ const ClientsDropDown = ({ clients }) => {
     return ( 
         <div className='clients-dropdown'>
             <select onChange={handleSelect}>
-            {clients.map((clients) => (
-                <option value={clients.id}>{clients.name}</option>
+            {clients.map((client) => (
+                <option value={client.id}>{client.name}</option>
             ))}
             </select>
-        <ClientInfo clients={clients} selectedClient={selectedClient}/>
         </div>
      );
 }

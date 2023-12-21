@@ -7,7 +7,7 @@ const SideBar = () => {
                 <h2>Invoice App</h2>
             </div>
             <div className="side-bar-links">
-                <Link to="new-invoice">New invoice</Link>
+                <Link to="/new-invoice">New invoice</Link>
                 <Link to="/invoices">Invoices</Link>
                 <Link to="/clients">Clients</Link>
             </div>

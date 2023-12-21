@@ -1,16 +1,12 @@
-const ClientInfo = ({clients, selectedClient}) => {
-
-    const client = clients.find((cl) => cl.id === selectedClient)
-
-    if (!client) {
-        return <div>No client selected</div>;
-    }
+const ClientInfo = ({theClient}) => {
 
     return ( 
         <div>
-            <h1>{client.name}</h1>
-            <h2>{client.address}</h2>
-            <h2>{client.UStIdNr}</h2>
+            <p>{theClient.name}</p>
+            <p>{theClient.address.street} {theClient.address.number}</p>
+            <p>{theClient.address.zip} {theClient.address.city}</p>
+            <p>{theClient.address.country}</p>
+            <p>{theClient.UStIdNr}</p>
         </div>
      );
 }

@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import ClientsDropDown from "./components/ClientsDropDown";
-import InvoiceList from "./components/InvoiceList";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import InvoiceList from "./components/InvoiceList";
 import SideBar from "./components/SideBar";
-import "./App.css";
 import NewInvoice from "./components/NewInvoice";
+import ClientsList from "./components/ClientsList";
+import "./App.css";
+
 
 function App() {
   const [invoices, setInvoices] = useState([]);
@@ -29,13 +30,13 @@ function App() {
         <div className="content">
           <Switch>
             <Route path="/new-invoice">
-              <NewInvoice invoices={invoices} client={clients} setInvoices={setInvoices}/>
+              <NewInvoice invoices={invoices} clients={clients} setInvoices={setInvoices}/>
             </Route>
             <Route path="/invoices">
               <InvoiceList invoices={invoices} clients={clients}/>
             </Route>
             <Route path="/clients">
-              <ClientsDropDown clients={clients} />
+              <ClientsList clients={clients} />
             </Route>
           </Switch>
         </div>

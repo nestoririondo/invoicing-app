@@ -2,6 +2,21 @@
     padding: 1rem;
 }
 
+.clients-dropdown {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.clients-dropdown select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+
 .button-wrapper {
     display: flex;
     justify-content: flex-end;

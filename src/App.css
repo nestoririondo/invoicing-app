@@ -70,19 +70,3 @@ table th {
 table tr:nth-child(even) {
     background-color: #d8d8d8;
 }
-
-.clients-dropdown {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.clients-dropdown select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
