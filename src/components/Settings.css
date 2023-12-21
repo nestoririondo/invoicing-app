@@ -1,26 +1,42 @@
 .settings {
     padding: 1rem;
 }
+
+.settings-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
 .settings>h2{
     margin-bottom: 1rem;
 }
-.company-data>h4 {
+.editcompanyinfo>h4,
+.editbankinfo>h4,
+.editcontactinfo>h4{
     margin-bottom: 1rem;
 }
-.company-data,
-.editbankinfo {
-    width: 100%;
-    max-width: 400px;
+.editcompanyinfo,
+.editbankinfo,
+.editcontactinfo {
+    margin-bottom: 2rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    border-radius: 5px;
+    display: grid;
 }
 
-.company-data input,
-.editbankinfo input {
+.editcompanyinfo input,
+.editbankinfo input,
+.editcontactinfo input {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-bottom: 10px;
     width: 100%;
 }
-.editbankinfo>h4 {
-    margin: 4rem 0 1rem 0;
+
+.editcompanyinfo button,
+.editbankinfo button,
+.editcontactinfo button {
+    align-self: end;
 }

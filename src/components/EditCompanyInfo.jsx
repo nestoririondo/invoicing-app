@@ -29,7 +29,7 @@ const EditCompanyInfo = ({ settings, setSettings }) => {
   };
 
   return (
-    <div className="company-data">
+    <div className="editcompanyinfo">
       <h4>Edit company information</h4>
       <form onSubmit={handleSubmit}>
         <input type="text" name="name" placeholder={settings.name} autoFocus />
