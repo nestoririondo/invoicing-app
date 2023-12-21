@@ -47,9 +47,7 @@
 .new-invoice {
     width: 210mm;
     height: 297mm;
-    padding: 20mm; /* Add some padding around the content */
-    background-color: #fff; /* Set the background color to white */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to give the page some depth */
-    display: grid;
-  }
+    background-color: #fff; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 

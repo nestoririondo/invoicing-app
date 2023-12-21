@@ -6,6 +6,7 @@ import "./invoice-templates/t3.css";
 import ClientsDropDown from "./ClientsDropDown";
 import ClientInfo from "./ClientInfo";
 import MyInfo from "./MyInfo";
+import BankInfo from "./BankInfo";
 
 const NewInvoice = ({ clients, settings }) => {
   const [template, setTemplate] = useState("t1");
@@ -42,9 +43,7 @@ const NewInvoice = ({ clients, settings }) => {
       {/* Invoice */}
       <div className={`new-invoice ${template}`}>
         <div className="company-logo"></div>
-        <div className="company-info">
-          {settings && <MyInfo settings={settings} />}
-        </div>
+          <MyInfo settings={settings} />
         <div className="client-info">
           {theClient && <ClientInfo theClient={theClient} />}
         </div>
@@ -52,7 +51,9 @@ const NewInvoice = ({ clients, settings }) => {
         <div className="invoice-table"></div>
         <div className="invoice-total"></div>
         <div className="contact"></div>
-        <div className="bank-information"></div>
+        <div className="bank-information">
+          <BankInfo settings={settings} />
+        </div>
       </div>
     </div>
   );

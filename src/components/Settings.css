@@ -7,15 +7,20 @@
 .company-data>h4 {
     margin-bottom: 1rem;
 }
-.company-data {
+.company-data,
+.editbankinfo {
     width: 100%;
     max-width: 400px;
 }
 
-.company-data input {
+.company-data input,
+.editbankinfo input {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-bottom: 10px;
     width: 100%;
+}
+.editbankinfo>h4 {
+    margin: 4rem 0 1rem 0;
 }

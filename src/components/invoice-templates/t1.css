@@ -1,3 +1,17 @@
-.t1 .company-logo {
+.t1 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 1rem;
+}
 
+
+
+
+
+
+.t1 .bank-information {
+    grid-column: 4 / 6;
+    grid-row: 5 / 6;
+    background-color: aqua;
 }
