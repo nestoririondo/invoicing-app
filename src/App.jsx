@@ -9,18 +9,18 @@ import "./App.css";
 
 function App() {
   const [invoices, setInvoices] = useState([]);
-  const [clients, setClients] = useState([]);
+  const [clients, setClients] = useState(() => {
+    const localClients = localStorage.getItem('localClients');
+    return localClients ? JSON.parse(localClients) : [];})
+  
+  useEffect(()=>{
+    localStorage.setItem('localClients', JSON.stringify(clients))
+    },[clients])
 
   useEffect(() => {
     fetch("http://localhost:8000/invoices")
       .then((response) => response.json())
       .then((data) => setInvoices(data));
-  }, []);
-
-  useEffect(() => {
-    fetch("http://localhost:8000/clients")
-      .then((response) => response.json())
-      .then((data) => setClients(data));
   }, []);
 
   return (
@@ -36,7 +36,7 @@ function App() {
               <InvoiceList invoices={invoices} clients={clients}/>
             </Route>
             <Route path="/clients">
-              <ClientsList clients={clients} />
+              <ClientsList clients={clients} setClients={setClients} />
             </Route>
           </Switch>
         </div>

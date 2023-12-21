@@ -1,26 +1,63 @@
 [
-    {
-        "name": "ALM Translations",
-        "address": {
-            "street": "ALM House",
-            "number": "20-21",
-            "zip": "BA12 9AY",
-            "city": "Warminster",
-            "country": "UK"
-        },
-        "UStIdNr": "DE 815 364 626",
-        "id": "cl001"
+  {
+    "name": "ALM Translations",
+    "address": {
+      "street": "ALM House",
+      "number": "20-21",
+      "zip": "BA12 9AY",
+      "city": "Warminster",
+      "country": "UK"
     },
-    {
-        "name": "Tolingo",
-        "address": {
-            "street": "Friedrichstraße",
-            "number": "6",
-            "zip": "70174",
-            "city": "Stuttgart",
-            "country": "DE"
-        },
-        "UStIdNr": "DE 123 432 323",
-        "id": "cl002"
-    }
+    "UStIdNr": "DE 815 364 626",
+    "id": "cl001"
+  },
+  {
+    "name": "Tolingo",
+    "address": {
+      "street": "Friedrichstraße",
+      "number": "6",
+      "zip": "70174",
+      "city": "Stuttgart",
+      "country": "DE"
+    },
+    "UStIdNr": "DE 123 432 323",
+    "id": "cl002"
+  },
+
+  {
+    "name": "Global Translations",
+    "address": {
+      "street": "Main Street",
+      "number": "123",
+      "zip": "10001",
+      "city": "New York",
+      "country": "US"
+    },
+    "UStIdNr": "US 456 789 012",
+    "id": "cl003"
+  },
+  {
+    "name": "Worldwide Linguistics",
+    "address": {
+      "street": "Baker Street",
+      "number": "221B",
+      "zip": "NW1 6XE",
+      "city": "London",
+      "country": "UK"
+    },
+    "UStIdNr": "UK 987 654 321",
+    "id": "cl004"
+  },
+  {
+    "name": "Universal Language Services",
+    "address": {
+      "street": "Rue de Rivoli",
+      "number": "45",
+      "zip": "75001",
+      "city": "Paris",
+      "country": "FR"
+    },
+    "UStIdNr": "FR 102 938 475",
+    "id": "cl005"
+  }
 ]

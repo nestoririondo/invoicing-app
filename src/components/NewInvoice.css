@@ -2,27 +2,34 @@
     padding: 1rem;
 }
 
-.clients-dropdown {
+.invoice-button-wrapper {
+    display: flex;
+    max-width: 210mm;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.invoice-button-wrapper select {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-bottom: 10px;
 }
 
-.clients-dropdown select {
+.invoice-button-wrapper option {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-bottom: 10px;
 }
 
-
-.button-wrapper {
+.save-export-wrapper {
     display: flex;
     justify-content: flex-end;
+    gap: 1rem;
 }   
 
-.button-wrapper button {
+.save-export-wrapper button {
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;

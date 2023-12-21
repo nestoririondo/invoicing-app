@@ -5,7 +5,7 @@ const ClientsDropDown = ({ clients, setSelectedClient }) => {
     }
 
     return ( 
-        <div className='clients-dropdown'>
+        <div>
             <select onChange={handleSelect}>
             {clients.map((client) => (
                 <option value={client.id}>{client.name}</option>

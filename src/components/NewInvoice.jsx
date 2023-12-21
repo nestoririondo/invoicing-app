@@ -9,7 +9,7 @@ import ClientInfo from "./ClientInfo";
 const NewInvoice = ({clients}) => {
   const [template, setTemplate] = useState("t1");
 
-  const [selectedClient, setSelectedClient] = useState("cl001")
+  const [selectedClient, setSelectedClient] = useState("cl1")
 
   const handleTemplateChange = (event) => {
     setTemplate(event.target.value);
@@ -20,13 +20,13 @@ const NewInvoice = ({clients}) => {
   return (
     <div className="invoice-wrapper">
       <div className="invoice-button-wrapper">
-        <ClientsDropDown clients={clients} setSelectedClient={setSelectedClient}/>
+        <ClientsDropDown clients={clients} setSelectedClient={setSelectedClient} className='clients-dropdown'/>
         <select onChange={handleTemplateChange}>
           <option value="t1">Template 1</option>
           <option value="t2">Template 2</option>
           <option value="t3">Template 3</option>
         </select>
-        <div className="button-wrapper">
+        <div className="save-export-wrapper">
           <button>Save</button>
           <button>Export to PDF</button>
         </div>

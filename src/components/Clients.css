@@ -1,0 +1,117 @@
+.clients-list {
+    padding: 1rem;
+}
+
+.client-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1rem;
+    margin: 1rem 0;
+}
+.add-client-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background-color: #41da90;
+    margin-top: 1rem;
+    &:hover {
+        background-color: #ccc;
+    }
+    &:active {
+        transform: scale(0.9);
+    }
+}
+.client-card {
+    max-width: 100%;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.client-card .client-name {
+    font-weight: bold;
+}
+
+.client-card-delete-btn {
+    align-self: flex-end;
+    height: 40px;
+    background-color: #b75050;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: #ccc;
+    }
+    &:active {
+        transform: scale(0.9);
+    }
+}
+
+.new-client-form {
+    max-width: 100%;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.new-client-form input {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+}
+.new-client-form-newclient {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.newclient-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.newclient-buttons button {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #41da90;
+    color: #000000;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    & :hover {
+        background-color: #ccc;
+    }
+}
+.newclient-buttons .clearbtn {
+    background-color: #a3a3a3;
+}
+.newclient-buttons .cancelbtn {
+    background-color: #b75050;
+}   
+
+.zipcountry {
+    display: flex;
+    gap: 1rem;
+}
+
+.zipcountry input {
+    width: 50%;
+}
+.newclient-buttons {
+    display: flex;
+}
+
+.newclient-buttons button {
+    width: 100%;
+}
+
