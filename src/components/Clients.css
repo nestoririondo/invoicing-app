@@ -24,7 +24,8 @@
     }
 }
 .client-card {
-    max-width: 100%;
+    max-width: 400px;
+    width: 100%;
     border: 1px solid #ccc;
     padding: 1rem;
     border-radius: 5px;
@@ -39,24 +40,27 @@
 
 .client-card-delete-btn {
     align-self: flex-end;
-    height: 40px;
-    background-color: #b75050;
-    color: #fff;
+    padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
-    padding: 0.5rem 1rem;
+    background-color: #c44d40;
+    color: #000000;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    /* visibility: hidden; */
     &:hover {
         background-color: #ccc;
-    }
-    &:active {
-        transform: scale(0.9);
-    }
+    };
+   
+}
+
+.visible {
+    visibility: visible;
 }
 
 .new-client-form {
-    max-width: 100%;
+    max-width: 400px;
+    width: 100%;
     border: 1px solid #ccc;
     padding: 1rem;
     border-radius: 5px;
