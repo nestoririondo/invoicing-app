@@ -10,7 +10,22 @@ import "./App.css";
 
 function App() {
 
-  const [invoices, setInvoices] = useState([]);
+  const [invoices, setInvoices] = useState([
+    {
+      invNum: "INV-2021-0001",
+      client: "Example Client 1",
+      invDate: { created: "2021-01-01", due: "2021-01-31", paid: "" },
+      services: [{ service: "Tanslation", rate: 30, quantity: 10 }, { service: "Proofreading", rate: 30, quantity: 5 }],
+      tax: 19,
+    },
+    {
+      invNum: "INV-2021-0002",
+      client: "Example Client 2",
+      invDate: { created: "2023-02-01", due: "2024-02-28", paid: "" },
+      services: [{ service: "Tanslation", rate: 30, quantity: 15 }, { service: "Proofreading", rate: 30, quantity: 53 }],
+      tax: 19,
+    },
+  ]);
 
   const [clients, setClients] = useState(() => {
     let localClients = localStorage.getItem('localClients');
