@@ -1,38 +1,24 @@
-import { useState } from "react";
-const InvoiceTable = ({ setInvoices }) => {
-  const [rate, setRate] = useState(0);
-  const [quantity, setQuantity] = useState(0);
-  const [service, setService] = useState("Translation");
-
+const InvoiceTable = ({
+  setItemRate,
+  setItemQuantity,
+  setItemService,
+  itemRate,
+  itemQuantity,
+}) => {
   const handleSetRate = (e) => {
-    setRate(e.target.value);
-    setInvoices((prev) => {
-      const newInvoice = { ...prev };
-      newInvoice.services[0].rate = rate;
-      return newInvoice;
-    });
+    setItemRate(e.target.value);
   };
 
   const handleSetQuantity = (e) => {
-    setQuantity(e.target.value);
-    setInvoices((prev) => {
-      const newInvoice = { ...prev };
-      newInvoice.services[0].quantity = quantity;
-      return newInvoice;
-    });
+    setItemQuantity(e.target.value);
   };
 
   const handleSetService = (e) => {
-    setService(e.target.value);
-    setInvoices((prev) => {
-      const newInvoice = { ...prev };
-      newInvoice.services[0].service = service;
-      return newInvoice;
-    });
-  }
+    setItemService(e.target.value);
+  };
 
   return (
-    <table>
+    <table className="invoice-table">
       <thead>
         <tr>
           <th>Service</th>
@@ -57,6 +43,7 @@ const InvoiceTable = ({ setInvoices }) => {
               type="number"
               step="0.01"
               onChange={handleSetRate}
+              min="0"
             />
           </td>
           <td>
@@ -64,9 +51,12 @@ const InvoiceTable = ({ setInvoices }) => {
               className="quantity-input"
               type="number"
               onChange={handleSetQuantity}
+              min="0"
             />
           </td>
-          <td className="total-input">{(rate * quantity).toFixed(2)} €</td>
+          <td className="total-input">
+            {(itemRate * itemQuantity).toFixed(2)} €
+          </td>
         </tr>
       </tbody>
     </table>

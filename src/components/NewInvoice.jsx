@@ -10,22 +10,26 @@ import ClientInfo from "./ClientInfo";
 import MyInfo from "./MyInfo";
 import BankInfo from "./BankInfo";
 import InvoiceTable from "./InvoiceTable";
+import InvoiceTableExtra from "./InvoiceTableExtra";
 import ContactInfo from "./ContactInfo";
 
 const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
   const [template, setTemplate] = useState("t1");
 
-  const [selectedClient, setSelectedClient] = useState("");
-
   const handleTemplateChange = (event) => {
     setTemplate(event.target.value);
   };
 
+  const [selectedClient, setSelectedClient] = useState("");
+
   const theClient = clients.find((client) => client.id === selectedClient);
 
+  // event handlers for invoice info
   const [invNum, setInvNum] = useState("");
-
-  const [itemPrice, setItemPrice] = useState(0);
+  const [itemRate, setItemRate] = useState(0);
+  const [itemQuantity, setItemQuantity] = useState(0);
+  const [itemService, setItemService] = useState("Translation");
+  const [tax, setTax] = useState(19);
 
   // export function (buggy)
   const exportPDF = () => {
@@ -43,19 +47,22 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
   };
   // export function (buggy)
 
-  let invoiceNum = "";
-  const handleInvNumChange = (event) => {
-    setInvNum(event.target.value);
-  };
-
   const today = new Date().toISOString().slice(0, 10);
   const dueDate = new Date();
   dueDate.setMonth(dueDate.getMonth() + 1);
   const dueDateString = dueDate.toISOString().slice(0, 10);
 
+  const handleInvNumChange = (event) => {
+    setInvNum(event.target.value);
+  };
+
+  const handleSetTax = (e) => {
+    setTax(e.target.value);
+  };
+
   const handleCreateInvoice = (event) => {
     event.preventDefault();
-    if (!invNum ) {
+    if (!invNum) {
       alert("Please enter invoice number");
       return;
     }
@@ -66,13 +73,15 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
     const newInvoice = {
       num: invNum,
       client: theClient.name,
-      id: invNum,
       date: { created: today, due: dueDateString, paid: "" },
-      services: [],
-      tax: 19,
+      services: [
+        { service: itemService, rate: itemRate, quantity: itemQuantity },
+      ],
+      tax: tax,
     };
     setInvoices((prev) => [...prev, newInvoice]);
-  }
+    alert("Invoice created");
+  };
 
   return (
     <div className="invoice-wrapper">
@@ -103,9 +112,13 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
         <div className="my-info-wrapper"></div>
         <MyInfo settings={settings} />
         <div className="client-info-wrapper">
-          {
-          theClient ? <ClientInfo theClient={theClient} />
-          : <p className="no-client-selected">Select a client from top dropdown</p>}
+          {theClient ? (
+            <ClientInfo theClient={theClient} />
+          ) : (
+            <p className="no-client-selected">
+              Select a client from top dropdown
+            </p>
+          )}
         </div>
         <div className="invoice-info-wrapper">
           {/* <InvoiceInfo invoices={invoices} /> */}
@@ -130,17 +143,19 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
           </div>
         </div>
         <div className="invoice-table-wrapper">
-          <InvoiceTable invoice={invoices} />
-        </div>
-        <div className="invoice-total">
-          <table>
-            <tbody>
-              <tr>
-                <td className="invoice-total-label">Total</td>
-                <td className="invoice-total-amount">€ 0.00</td>
-              </tr>
-            </tbody>
-          </table>
+          <InvoiceTable
+            setItemRate={setItemRate}
+            setItemQuantity={setItemQuantity}
+            setItemService={setItemService}
+            itemRate={itemRate}
+            itemQuantity={itemQuantity}
+          />
+          <InvoiceTableExtra
+            itemRate={itemRate}
+            itemQuantity={itemQuantity}
+            handleSetTax={handleSetTax}
+            tax={tax}
+          />
         </div>
         <div className="contact-wrapper">
           <ContactInfo settings={settings} />

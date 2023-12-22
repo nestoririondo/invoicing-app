@@ -59,7 +59,7 @@
 
 @keyframes blinker {
   30% {
-    opacity: .1;
+    opacity: 0.1;
   }
   100% {
     opacity: 1;
@@ -154,37 +154,109 @@
   grid-column: 1 / 6;
   grid-row: 3 / 5;
   padding: 2rem;
-  width: 100%;
 }
 
-.t1 .invoice-table-wrapper table {
+.t1 .invoice-table {
   width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
 }
 
-.t1 .invoice-table-wrapper thead {
+.t1 .invoice-table thead {
   background-color: #41da90;
 }
 
 .t1 .invoice-table-wrapper th {
   padding: 0.5rem;
   font-weight: bold;
-  color: #000;
   text-align: left;
+  border: 1px solid var(--light-gray);
 }
 
-.t1 .invoice-table-wrapper td {
+.t1 .invoice-table td {
   padding: 0.5rem;
-  color: #000;
-  text-align: left;
-  border: 1px solid #ddd;
+  border: 1px solid var(--light-gray);
 }
 
-.t1 .invoice-total {
-  grid-column: 4 / 6;
-  grid-row: 5 / 5;
-  padding: 2rem;
+.t1 .invoice-table td:nth-child(4) {
   text-align: right;
-  font-size: 0.9rem;
+}
+
+.t1 .invoice-table select {
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  padding: 0.5rem;
+}
+.t1 .invoice-table input {
+  border: none;
+  background-color: transparent;
+  width: 50%;
+  padding: 0.5rem;
+}
+
+.t1 .invoice-table-extra {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: right;
+  margin-top: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+.t1 .invoice-table-extra .subtotal::before {
+  content: "Subtotal";
+  margin-right: 1rem;
+}
+.t1 .invoice-table-extra .subtotal {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid var(--light-gray);
+  padding: 0.5rem;
+}
+
+.t1 .invoice-table-extra .tax td::before {
+  content: "Tax";
+  margin-right: 1rem;
+}
+
+.t1 .invoice-table-extra .tax {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid var(--light-gray);
+  padding: 0.5rem;
+}
+
+.t1 .invoice-table-extra .tax input {
+  width: 30%;
+  padding: 0.5rem;
+  border: none;
+  margin-right: 1rem;
+  background-color: var(--light-gray);
+}
+
+.t1 .tax-value {
+  display: inline;
+}
+
+.t1 .invoice-table-extra .tax td {
+  margin-left: auto;
+  display: inline;
+}
+.t1 .invoice-table-extra .total::before {
+  content: "Total";
+  margin-right: 1rem;
+}
+
+.t1 .invoice-table-extra .total {
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 /* Footer */
