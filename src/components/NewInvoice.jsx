@@ -29,6 +29,7 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
   const [itemRate, setItemRate] = useState(0);
   const [itemQuantity, setItemQuantity] = useState(0);
   const [itemService, setItemService] = useState("Translation");
+  const [itemDescription, setItemDescription] = useState("");
   const [tax, setTax] = useState(19);
 
   // export function (buggy)
@@ -75,7 +76,7 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
       client: theClient.name,
       date: { created: today, due: dueDateString, paid: "" },
       services: [
-        { service: itemService, rate: itemRate, quantity: itemQuantity },
+        { service: itemService, description: itemDescription, rate: itemRate, quantity: itemQuantity },
       ],
       tax: tax,
     };
@@ -147,6 +148,7 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
             setItemRate={setItemRate}
             setItemQuantity={setItemQuantity}
             setItemService={setItemService}
+            setItemDescription={setItemDescription}
             itemRate={itemRate}
             itemQuantity={itemQuantity}
           />

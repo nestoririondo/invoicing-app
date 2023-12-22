@@ -2,6 +2,7 @@ const InvoiceTable = ({
   setItemRate,
   setItemQuantity,
   setItemService,
+  setItemDescription,
   itemRate,
   itemQuantity,
 }) => {
@@ -17,11 +18,16 @@ const InvoiceTable = ({
     setItemService(e.target.value);
   };
 
+  const handleSetDescription = (e) => {
+    setItemDescription(e.target.value);
+  }
+
   return (
     <table className="invoice-table">
       <thead>
         <tr>
           <th>Service</th>
+          <th>Description</th>
           <th>Rate</th>
           <th>Quantity</th>
           <th>Amount</th>
@@ -36,6 +42,9 @@ const InvoiceTable = ({
               <option>Other</option>
               <option></option>
             </select>
+          </td>
+          <td>
+            <input className="description-input" type="text" placeholder="Description" onChange={handleSetDescription} />
           </td>
           <td>
             <input
