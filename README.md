@@ -1,7 +1,7 @@
-# React + Vite
+# Invoicing app done with React
 
-npm install -g json-server
-
-json-server --watch db.cjs --port 8000
-
+```
+npm i
 npm install react-router-dom@5
+npm install uuid
+```
