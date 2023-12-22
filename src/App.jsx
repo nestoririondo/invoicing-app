@@ -53,7 +53,7 @@ function App() {
   const [settings, setSettings] = useState(() => {
     const localSettings = localStorage.getItem('localSettings');
     return localSettings ? JSON.parse(localSettings) : {
-      name: "My Company",
+      name: "My Business",
       address: {street: "Meine Strasse 12", zip: "12345", city: "Berlin", country: "Germany" },
       contact: {phone: "+49 175 234 123", email: "email.address@mycompany.de" },
       bank: {name: "My Bank", iban: "DE12 3456 7890 1234 5678 90", bic: "ABCDEFGH123" },
