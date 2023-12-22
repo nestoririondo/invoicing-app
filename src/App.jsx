@@ -34,14 +34,14 @@ function App() {
     let localClients = localStorage.getItem('localClients');
     return localClients ? JSON.parse(localClients) : [
       {
-        id: "",
+        id: uuidv4(),
         name: "Example Client 1",
         address: {street: "Client Street 1", zip: "12345", city: "Berlin", country: "Germany" },
         contact: {phone: "+49 175 234 123", email: "client.email@clientcompany.com" },
         ustidnr: "DE 123 456 789",
       },
       {
-        id: "",
+        id: uuidv4(),
         name: "Example Client 2",
         address: {street: "Another Street 2", zip: "54321", city: "Berlin", country: "Germany" },
         contact: {phone: "+49 175 234 123", email: "client.email@clientcompany.com" },
@@ -65,6 +65,9 @@ function App() {
   useEffect(() => {
     localStorage.setItem('localClients', JSON.stringify(clients));
   }, [clients]);
+
+  useEffect(() => {localStorage.setItem('localInvoices', JSON.stringify(invoices))},[invoices])
+
 
   return (
     <div className="app">

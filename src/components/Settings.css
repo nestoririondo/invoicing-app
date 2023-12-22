@@ -38,5 +38,5 @@
 .editcompanyinfo button,
 .editbankinfo button,
 .editcontactinfo button {
-    align-self: end;
+    margin-bottom: auto;
 }

@@ -7,11 +7,12 @@ import ClientsDropDown from "./ClientsDropDown";
 import ClientInfo from "./ClientInfo";
 import MyInfo from "./MyInfo";
 import BankInfo from "./BankInfo";
+import ContactInfo from "./ContactInfo";
 
 const NewInvoice = ({ clients, settings }) => {
   const [template, setTemplate] = useState("t1");
 
-  const [selectedClient, setSelectedClient] = useState("cl1");
+  const [selectedClient, setSelectedClient] = useState("");
 
   const handleTemplateChange = (event) => {
     setTemplate(event.target.value);
@@ -42,16 +43,20 @@ const NewInvoice = ({ clients, settings }) => {
       </div>
       {/* Invoice */}
       <div className={`new-invoice ${template}`}>
-        <div className="company-logo"></div>
+        <div className="my-info-wrapper"></div>
           <MyInfo settings={settings} />
-        <div className="client-info">
+        <div className="client-info-wrapper">
           {theClient && <ClientInfo theClient={theClient} />}
         </div>
-        <div className="invoice-info"></div>
+        <div className="invoice-info">
+          
+        </div>
         <div className="invoice-table"></div>
         <div className="invoice-total"></div>
-        <div className="contact"></div>
-        <div className="bank-information">
+        <div className="contact-wrapper">
+          <ContactInfo settings={settings} />
+        </div>
+        <div className="bank-info-wrapper">
           <BankInfo settings={settings} />
         </div>
       </div>

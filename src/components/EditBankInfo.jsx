@@ -18,6 +18,7 @@ const EditBankInfo = ({settings, setSettings}) => {
                 iban: e.target.iban.value,
                 bic: e.target.bic.value,
             },
+            contact: settings.contact,
             ustidnr: settings.ustidnr,
         };
         setSettings(newSettings);

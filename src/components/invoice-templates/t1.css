@@ -5,13 +5,165 @@
     gap: 1rem;
 }
 
+.t1 .my-info-wrapper {
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.t1 .my-info {
+    grid-column: 4  / 7;
+    grid-row: 1 / 2;
+    padding: 2rem;
+    text-align: right;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.t1 .my-info-wrapper::before {
+    content: "Invoice";
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding: 2rem;
+}
+
+.t1 .my-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 1rem;
+}
 
 
 
 
+.t1 .contact-wrapper {
+    grid-column: 1 / 6;
+    grid-row: 6 / 5;
+    background-color: #41da90;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
 
-.t1 .bank-information {
-    grid-column: 4 / 6;
+.t1 .contact-info {
+    padding: 2rem;
+}
+
+.t1 .contact-info::before {
+    content: "Contact";
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #000;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.t1 .contact-phone::before {
+    content: "Phone";
+    font-weight: bold;
+    font-size: 1rem;
+    color: #000;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.t1 .contact-phone {
+    font-size: 1rem;
+    color: #000;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.t1 .contact-email::before {
+    content: "Email";
+    font-weight: bold;
+    font-size: 1rem;
+    color: #000;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.t1 .contact-email {
+    font-size: 1rem;
+    color: #000;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+
+
+
+.t1 .bank-info-wrapper {
+    grid-column: 1 / 6;
     grid-row: 5 / 6;
-    background-color: aqua;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.t1 .bank-info {
+    grid-column: 5 / 7;
+    padding: 2rem;
+    margin-left: -2rem;
+    text-align: right;
+}
+
+.t1 .bank-info::before {
+    content: "Bank Information";
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #000;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.t1 .bank-name::before {
+    content: "Bank";
+    font-weight: bold;
+    font-size: 1rem;
+    color: #000;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.t1 .bank-name {
+    font-size: 1rem;
+    color: #000;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.t1 .bank-iban::before {
+    content: "IBAN";
+    font-weight: bold;
+    font-size: 1rem;
+    color: #000;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.t1 .bank-iban {
+    font-size: 1rem;
+    color: #000;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.t1 .bank-bic::before {
+    content: "BIC";
+    font-weight: bold;
+    font-size: 1rem;
+    color: #000;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.t1 .bank-bic {
+    font-size: 1rem;
+    color: #000;
+    display: block;
+    margin-bottom: 0.5rem;
 }

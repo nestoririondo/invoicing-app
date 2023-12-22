@@ -20,6 +20,7 @@ const EditCompanyInfo = ({ settings, setSettings }) => {
         city: e.target.city.value,
         country: e.target.country.value,
       },
+      contact: settings.contact,
       bank: settings.bank,
       ustidnr: e.target.ustidnr.value,
     };

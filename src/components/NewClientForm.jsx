@@ -17,6 +17,7 @@ const NewClientForm = ({ setClients, setCreatingClient, clients }) => {
 
     const newClient = {
       name: e.target.name.value,
+      id: uuidv4(),
       address: {
         street: e.target.streetnumber.value,
         zip: e.target.zip.value,
