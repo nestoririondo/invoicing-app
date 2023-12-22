@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const NewClientForm = ({ setClients, setCreatingClient, clients }) => {
 
   const handleSubmit = (e) => {
@@ -18,14 +20,13 @@ const NewClientForm = ({ setClients, setCreatingClient, clients }) => {
     const newClient = {
       name: e.target.name.value,
       id: uuidv4(),
+      ustidnr: e.target.ustidnr.value,
       address: {
         street: e.target.streetnumber.value,
         zip: e.target.zip.value,
         city: e.target.city.value,
         country: e.target.country.value,
       },
-      ustidnr: e.target.ustidnr.value,
-      id: `cl${clients.length + 1}`,
     };
     setCreatingClient(false);
     setClients((prevClients) => [...prevClients, newClient]);

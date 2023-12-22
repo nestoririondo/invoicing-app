@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 import "./NewInvoice.css";
 import "./invoice-templates/t1.css";
 import "./invoice-templates/t2.css";
@@ -7,9 +9,10 @@ import ClientsDropDown from "./ClientsDropDown";
 import ClientInfo from "./ClientInfo";
 import MyInfo from "./MyInfo";
 import BankInfo from "./BankInfo";
+import InvoiceTable from "./InvoiceTable";
 import ContactInfo from "./ContactInfo";
 
-const NewInvoice = ({ clients, settings }) => {
+const NewInvoice = ({ clients, settings, invoices }) => {
   const [template, setTemplate] = useState("t1");
 
   const [selectedClient, setSelectedClient] = useState("");
@@ -19,6 +22,36 @@ const NewInvoice = ({ clients, settings }) => {
   };
 
   const theClient = clients.find((client) => client.id === selectedClient);
+
+  const [invNum, setInvNum] = useState("");
+
+  const [itemPrice, setItemPrice] = useState(0);
+
+  // export function (buggy)
+  const exportPDF = () => {
+    const input = document.querySelector(".new-invoice");
+
+    html2canvas(input, { scale: window.devicePixelRatio }).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF("p", "mm", "a4");
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+      pdf.save("download.pdf");
+    });
+  };
+  // export function (buggy)
+
+  let invoiceNum = "";
+  const handleInvNumChange = (event) => {
+    setInvNum(event.target.value);
+  };
+
+  const today = new Date().toISOString().slice(0, 10);
+  const dueDate = new Date();
+  dueDate.setMonth(dueDate.getMonth() + 1);
+  const dueDateString = dueDate.toISOString().slice(0, 10);
 
   return (
     <div className="invoice-wrapper">
@@ -38,21 +71,54 @@ const NewInvoice = ({ clients, settings }) => {
         </select>
         <div className="save-export-wrapper">
           <button>Save</button>
-          <button>Export to PDF</button>
+          <button onClick={exportPDF}>Export to PDF</button>
         </div>
       </div>
       {/* Invoice */}
       <div className={`new-invoice ${template}`}>
+        <div className="inv-num-wrapper">
+          <p>{invNum}</p>
+        </div>
         <div className="my-info-wrapper"></div>
-          <MyInfo settings={settings} />
+        <MyInfo settings={settings} />
         <div className="client-info-wrapper">
           {theClient && <ClientInfo theClient={theClient} />}
         </div>
-        <div className="invoice-info">
-          
+        <div className="invoice-info-wrapper">
+          {/* <InvoiceInfo invoices={invoices} /> */}
+          <div className="invoice-num-wrapper">
+            <input
+              className="invoice-num"
+              type="text"
+              placeholder="Invoice No."
+              onChange={handleInvNumChange}
+              autoFocus
+            />
+          </div>
+          <div className="invoice-date-wrapper">
+            <input className="invoice-date" type="date" defaultValue={today} />
+          </div>
+          <div className="invoice-due-wrapper">
+            <input
+              className="invoice-due"
+              type="date"
+              defaultValue={dueDateString}
+            />
+          </div>
         </div>
-        <div className="invoice-table"></div>
-        <div className="invoice-total"></div>
+        <div className="invoice-table-wrapper">
+          <InvoiceTable invoice={invoices} />
+        </div>
+        <div className="invoice-total">
+          <table>
+            <tbody>
+              <tr>
+                <td className="invoice-total-label">Total</td>
+                <td className="invoice-total-amount">€ 0.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <div className="contact-wrapper">
           <ContactInfo settings={settings} />
         </div>

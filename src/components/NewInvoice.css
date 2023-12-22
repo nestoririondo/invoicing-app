@@ -51,3 +51,18 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+@media print {
+    body * {
+      visibility: hidden;
+    }
+  
+    .new-invoice, .new-invoice * {
+      visibility: visible;
+    }
+  
+    .new-invoice {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
