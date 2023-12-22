@@ -82,7 +82,9 @@ const NewInvoice = ({ clients, settings, invoices }) => {
         <div className="my-info-wrapper"></div>
         <MyInfo settings={settings} />
         <div className="client-info-wrapper">
-          {theClient && <ClientInfo theClient={theClient} />}
+          {
+          theClient ? <ClientInfo theClient={theClient} />
+          : <p className="no-client-selected">Select a client from top dropdown</p>}
         </div>
         <div className="invoice-info-wrapper">
           {/* <InvoiceInfo invoices={invoices} /> */}

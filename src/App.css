@@ -47,12 +47,11 @@ body {
     font-weight: bold;
     transform: scale(1.1);
 }
-
-.side-bar-new-invoice {
-    background-color: #;
+.side-bar-links a.active {
+    background-color: #4c7aa6;
+    font-weight: bold;
 }
-
 .content {
-    width: calc(100% - 250px);
+    width: 100%;
     margin: 1rem;
 }
