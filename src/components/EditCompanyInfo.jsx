@@ -31,24 +31,24 @@ const EditCompanyInfo = ({ settings, setSettings }) => {
 
   return (
     <div className="editcompanyinfo">
-      <h4>Edit company information</h4>
+      <h4>Company information</h4>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="name" placeholder={settings.name} autoFocus />
+        <input type="text" name="name" defaultValue={settings.name} autoFocus />
         <input
           type="text"
           name="streetnumber"
-          placeholder={settings.address.street}
+          defaultValue={settings.address.street}
         />
         <div className="zipcountry">
-          <input type="text" name="zip" placeholder={settings.address.zip} />
-          <input type="text" name="city" placeholder={settings.address.city} />
+          <input type="text" name="zip" defaultValue={settings.address.zip} />
+          <input type="text" name="city" defaultValue={settings.address.city} />
         </div>
         <input
           type="text"
           name="country"
-          placeholder={settings.address.country}
+          defaultValue={settings.address.country}
         />
-        <input type="text" name="ustidnr" placeholder={settings.ustidnr} />
+        <input type="text" name="ustidnr" defaultValue={settings.ustidnr} />
         <div className="newclient-buttons">
           <button>Save</button>
         </div>

@@ -84,9 +84,9 @@ function App() {
             <Route path="/clients">
               <ClientsList clients={clients} setClients={setClients} />
             </Route>
-            <Router path="/settings">
+            <Route path="/settings">
               <Settings settings={settings} setSettings={setSettings} />
-            </Router>
+            </Route>
           </Switch>
         </div>
       </Router>

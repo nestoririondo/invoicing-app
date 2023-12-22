@@ -12,7 +12,7 @@ import BankInfo from "./BankInfo";
 import InvoiceTable from "./InvoiceTable";
 import ContactInfo from "./ContactInfo";
 
-const NewInvoice = ({ clients, settings, invoices }) => {
+const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
   const [template, setTemplate] = useState("t1");
 
   const [selectedClient, setSelectedClient] = useState("");
@@ -53,6 +53,27 @@ const NewInvoice = ({ clients, settings, invoices }) => {
   dueDate.setMonth(dueDate.getMonth() + 1);
   const dueDateString = dueDate.toISOString().slice(0, 10);
 
+  const handleCreateInvoice = (event) => {
+    event.preventDefault();
+    if (!invNum ) {
+      alert("Please enter invoice number");
+      return;
+    }
+    if (!selectedClient) {
+      alert("Please select a client");
+      return;
+    }
+    const newInvoice = {
+      num: invNum,
+      client: theClient.name,
+      id: invNum,
+      date: { created: today, due: dueDateString, paid: "" },
+      services: [],
+      tax: 19,
+    };
+    setInvoices((prev) => [...prev, newInvoice]);
+  }
+
   return (
     <div className="invoice-wrapper">
       <h2 className="invoice-h2">Create new invoice</h2>
@@ -70,7 +91,7 @@ const NewInvoice = ({ clients, settings, invoices }) => {
           <option value="t3">Template 3</option>
         </select>
         <div className="save-export-wrapper">
-          <button>Save</button>
+          <button onClick={handleCreateInvoice}>Save</button>
           <button onClick={exportPDF}>Export to PDF</button>
         </div>
       </div>

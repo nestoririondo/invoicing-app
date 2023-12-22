@@ -58,8 +58,8 @@
 /* Client Information */
 
 @keyframes blinker {
-  60% {
-    opacity: .3;
+  30% {
+    opacity: .1;
   }
   100% {
     opacity: 1;

@@ -24,10 +24,10 @@ const EditContactInfo = ({settings, setSettings}) => {
       }
     return ( 
         <div className="editcontactinfo">
-        <h4>Edit contact information</h4>
+        <h4>Contact information</h4>
         <form onSubmit={handleSubmit}>
-          <input type="text" name="email" placeholder={settings.contact.email} />
-          <input type="text" name="phone" placeholder={settings.contact.phone} />
+          <input type="text" name="email" defaultValue={settings.contact.email} />
+          <input type="text" name="phone" defaultValue={settings.contact.phone} />
           <div className="newclient-buttons">
             <button>Save</button>
           </div>

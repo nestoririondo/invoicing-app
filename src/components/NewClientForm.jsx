@@ -46,7 +46,7 @@ const NewClientForm = ({ setClients, setCreatingClient, clients }) => {
     <div className="new-client-form">
       <p className="new-client-form-newclient">New Client</p>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="name" placeholder="Company name" autoFocus/>
+        <input type="text" name="name" placeholder="Client name" autoFocus/>
         <input
           type="text"
           name="streetnumber"

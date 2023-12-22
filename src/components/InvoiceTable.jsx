@@ -1,15 +1,35 @@
 import { useState } from "react";
-const InvoiceTable = ({ invoices }) => {
+const InvoiceTable = ({ setInvoices }) => {
   const [rate, setRate] = useState(0);
-  const [amount, setAmount] = useState(0);
+  const [quantity, setQuantity] = useState(0);
+  const [service, setService] = useState("Translation");
 
   const handleSetRate = (e) => {
     setRate(e.target.value);
+    setInvoices((prev) => {
+      const newInvoice = { ...prev };
+      newInvoice.services[0].rate = rate;
+      return newInvoice;
+    });
   };
 
-  const handleSetAmount = (e) => {
-    setAmount(e.target.value);
+  const handleSetQuantity = (e) => {
+    setQuantity(e.target.value);
+    setInvoices((prev) => {
+      const newInvoice = { ...prev };
+      newInvoice.services[0].quantity = quantity;
+      return newInvoice;
+    });
   };
+
+  const handleSetService = (e) => {
+    setService(e.target.value);
+    setInvoices((prev) => {
+      const newInvoice = { ...prev };
+      newInvoice.services[0].service = service;
+      return newInvoice;
+    });
+  }
 
   return (
     <table>
@@ -24,7 +44,7 @@ const InvoiceTable = ({ invoices }) => {
       <tbody>
         <tr>
           <td>
-            <select>
+            <select onChange={handleSetService}>
               <option>Translation</option>
               <option>Proofreading</option>
               <option>Other</option>
@@ -41,29 +61,12 @@ const InvoiceTable = ({ invoices }) => {
           </td>
           <td>
             <input
-              className="amount-input"
+              className="quantity-input"
               type="number"
-              onChange={handleSetAmount}
+              onChange={handleSetQuantity}
             />
           </td>
-          <td className="total-input">{(rate * amount).toFixed(2)} €</td>
-        </tr>
-        <tr>
-          <td>
-            <select>
-              <option>Translation</option>
-              <option>Proofreading</option>
-              <option>Other</option>
-              <option></option>
-            </select>
-          </td>
-          <td>
-            <input type="number" step="0.01" />
-          </td>
-          <td>
-            <input type="number" />
-          </td>
-          <td></td>
+          <td className="total-input">{(rate * quantity).toFixed(2)} €</td>
         </tr>
       </tbody>
     </table>

@@ -26,11 +26,11 @@ const EditBankInfo = ({settings, setSettings}) => {
       }
     return ( 
         <div className="editbankinfo">
-        <h4>Edit bank information</h4>
+        <h4>Bank information</h4>
         <form onSubmit={handleSubmit}>
-          <input type="text" name="bankname" placeholder={settings.bank.name} />
-          <input type="text" name="iban" placeholder={settings.bank.iban} />
-          <input type="text" name="bic" placeholder={settings.bank.bic} />
+          <input type="text" name="bankname" defaultValue={settings.bank.name} />
+          <input type="text" name="iban" defaultValue={settings.bank.iban} />
+          <input type="text" name="bic" defaultValue={settings.bank.bic} />
           <div className="newclient-buttons">
             <button>Save</button>
           </div>
