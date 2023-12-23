@@ -26,9 +26,9 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
 
   // event handlers for invoice info
   const [invNum, setInvNum] = useState("");
-  const [itemRate, setItemRate] = useState(0);
+  const [itemRate, setItemRate] = useState(settings.services[0] ? settings.services[0].rate : "");
   const [itemQuantity, setItemQuantity] = useState(0);
-  const [itemService, setItemService] = useState("Translation");
+  const [itemService, setItemService] = useState(settings.services[0] ? settings.services[0].service : "");
   const [itemDescription, setItemDescription] = useState("");
   const [tax, setTax] = useState(19);
 

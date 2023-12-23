@@ -17,6 +17,10 @@ const InvoiceTable = ({
 
   const handleSetService = (e) => {
     setItemService(e.target.value);
+    const seviceInSettings = settings.services.find(
+      (service) => service.service === e.target.value
+    );
+    setItemRate(seviceInSettings.rate);
   };
 
   const handleSetDescription = (e) => {
@@ -60,6 +64,7 @@ const InvoiceTable = ({
               step="0.01"
               onChange={handleSetRate}
               min="0"
+              value={itemRate}
             />
           </td>
           <td>
