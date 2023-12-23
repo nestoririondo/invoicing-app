@@ -3,5 +3,5 @@
 
 Dependencies
 ```
-npm 
+npm i
 ```
