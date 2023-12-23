@@ -1,4 +1,5 @@
 const EditCompanyInfo = ({ settings, setSettings }) => {
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
@@ -20,6 +21,7 @@ const EditCompanyInfo = ({ settings, setSettings }) => {
         city: e.target.city.value,
         country: e.target.country.value,
       },
+      services: settings.services,
       contact: {
         phone: e.target.phone.value,
         email: e.target.email.value,
@@ -37,51 +39,90 @@ const EditCompanyInfo = ({ settings, setSettings }) => {
 
   return (
     <div className="editcompanyinfo">
-      <div className="business">
-      <h4>Business information</h4>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="name" defaultValue={settings.name} autoFocus />
-        <input
-          type="text"
-          name="streetnumber"
-          defaultValue={settings.address.street}
-        />
-        <div className="zipcountry">
-          <input type="text" name="zip" defaultValue={settings.address.zip} />
-          <input type="text" name="city" defaultValue={settings.address.city} />
-        </div>
-        <input
-          type="text"
-          name="country"
-          defaultValue={settings.address.country}
-        />
-        <input type="text" name="ustidnr" defaultValue={settings.ustidnr} />
-        </form>
+        <div className="business">
+          <h4>Business information</h4>
+          <input
+            type="text"
+            name="name"
+            defaultValue={settings.name}
+            autoFocus
+          />
+          <input
+            type="text"
+            name="streetnumber"
+            defaultValue={settings.address.street}
+          />
+          <div className="zipcountry">
+            <input type="text" name="zip" defaultValue={settings.address.zip} />
+            <input
+              type="text"
+              name="city"
+              defaultValue={settings.address.city}
+            />
+          </div>
+          <input
+            type="text"
+            name="country"
+            defaultValue={settings.address.country}
+          />
+          <input type="text" name="ustidnr" defaultValue={settings.ustidnr} />
         </div>
         <div className="contact">
-
-      <form onSubmit={handleSubmit}>
-        <h4>Contact information</h4>
-        <input type="text" name="phone" defaultValue={settings.contact.phone} />
-        <input
-          type="email"
-          name="email"
-          defaultValue={settings.contact.email}
-        />
-        </form>
+          <h4>Contact information</h4>
+          <input
+            type="text"
+            name="phone"
+            defaultValue={settings.contact.phone}
+          />
+          <input
+            type="email"
+            name="email"
+            defaultValue={settings.contact.email}
+          />
         </div>
 
-      <div className="bank">
-      <form onSubmit={handleSubmit}>
-        <h4>Bank information</h4>
-        <input type="text" name="bankname" defaultValue={settings.bank.name} />
-        <input type="text" name="bankiban" defaultValue={settings.bank.iban} />
-        <input type="text" name="bankbic" defaultValue={settings.bank.bic} />
-        <div className="newclient-buttons">
-          <button>Save</button>
+        <div className="bank">
+          <h4>Bank information</h4>
+          <input
+            type="text"
+            name="bankname"
+            defaultValue={settings.bank.name}
+          />
+          <input
+            type="text"
+            name="bankiban"
+            defaultValue={settings.bank.iban}
+          />
+          <input type="text" name="bankbic" defaultValue={settings.bank.bic} />
+        </div>
+
+        <div className="services">
+          <h4>Services</h4>
+          {settings.services.map((service, index) => (
+            <div key={index} className="service">
+              <input
+                type="text"
+                name={`service${index}`}
+                defaultValue={service.service}
+              />
+              <input
+                type="number"
+                name={`rate${index}`}
+                defaultValue={service.rate}
+              />
+            </div>
+          ))}
+          <div className="add-service">
+            {/* <button onClick={addNewService}>Add service</button> */}
+          </div>
+
+          <div className="newclient-buttons">
+            <button>Save</button>
+          </div>
+
         </div>
       </form>
-      </div>
     </div>
   );
 };

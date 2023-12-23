@@ -122,7 +122,6 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
           )}
         </div>
         <div className="invoice-info-wrapper">
-          {/* <InvoiceInfo invoices={invoices} /> */}
           <div className="invoice-num-wrapper">
             <input
               className="invoice-num"
@@ -151,6 +150,8 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
             setItemDescription={setItemDescription}
             itemRate={itemRate}
             itemQuantity={itemQuantity}
+            itemService={itemService}
+            settings={settings}
           />
           <InvoiceTableExtra
             itemRate={itemRate}

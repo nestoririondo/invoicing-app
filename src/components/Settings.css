@@ -33,3 +33,12 @@
 .editcompanyinfo button {
     margin-bottom: auto;
 }
+
+.service {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.service input:nth-child(2) {
+    width: 30%;
+}

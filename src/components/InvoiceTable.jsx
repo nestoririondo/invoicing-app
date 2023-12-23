@@ -5,6 +5,7 @@ const InvoiceTable = ({
   setItemDescription,
   itemRate,
   itemQuantity,
+  settings,
 }) => {
   const handleSetRate = (e) => {
     setItemRate(e.target.value);
@@ -20,7 +21,7 @@ const InvoiceTable = ({
 
   const handleSetDescription = (e) => {
     setItemDescription(e.target.value);
-  }
+  };
 
   return (
     <table className="invoice-table">
@@ -37,14 +38,20 @@ const InvoiceTable = ({
         <tr>
           <td>
             <select onChange={handleSetService}>
-              <option>Translation</option>
-              <option>Proofreading</option>
-              <option>Other</option>
-              <option></option>
+              {settings.services.map((service, index) => (
+                <option key={index} value={service.service}>
+                  {service.service}
+                </option>
+              ))}
             </select>
           </td>
           <td>
-            <input className="description-input" type="text" placeholder="Description" onChange={handleSetDescription} />
+            <input
+              className="description-input"
+              type="text"
+              placeholder="Description"
+              onChange={handleSetDescription}
+            />
           </td>
           <td>
             <input
