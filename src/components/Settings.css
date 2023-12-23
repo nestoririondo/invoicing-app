@@ -15,14 +15,7 @@
     margin-top: 1rem;
 }
 
-.editcompanyinfo{
-    margin-bottom: 2rem;
-    border-radius: 5px;
-    display: grid;
-    max-width: 350px;
-}
-
-.editcompanyinfo input {
+.editcompanyinfo input{
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -30,15 +23,65 @@
     width: 100%;
 }
 
-.editcompanyinfo button {
-    margin-bottom: auto;
+.services h4 {
+     margin-top: 1rem;
 }
-
 .service {
     display: flex;
-    justify-content: space-between;
     gap: 1rem;
+    align-items: last baseline;
+    margin-bottom: 0.5rem;
 }
-.service input:nth-child(2) {
-    width: 30%;
+.service input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
+label {
+    font-size: smaller;
+}
+
+.service .savebtn {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #41da90;
+    cursor: pointer;
+    &:hover {
+        background-color: #3bc47d;
+    }
+    &:active {
+        background-color: #2ea362;
+    }
+}
+
+.service .deletebtn {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #d65c53;
+    cursor: pointer;
+    &:hover {
+        background-color: #e53935;
+    }
+    &:active {
+        background-color: #d32f2f;
+    }
+}
+
+.addservicebtn {
+    margin-top: 1rem;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #55bfe9;
+    cursor: pointer;
+    &:hover {
+        background-color: #4aa9d6;
+    }
+    &:active {
+        background-color: #3e93c3;
+    }
+}
+

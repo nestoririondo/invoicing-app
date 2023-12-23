@@ -1,5 +1,6 @@
-const EditCompanyInfo = ({ settings, setSettings }) => {
 
+const EditCompanyInfo = ({ settings, setSettings }) => {
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
@@ -39,6 +40,7 @@ const EditCompanyInfo = ({ settings, setSettings }) => {
 
   return (
     <div className="editcompanyinfo">
+      
       <form onSubmit={handleSubmit}>
         <div className="business">
           <h4>Business information</h4>
@@ -96,31 +98,8 @@ const EditCompanyInfo = ({ settings, setSettings }) => {
           />
           <input type="text" name="bankbic" defaultValue={settings.bank.bic} />
         </div>
-
-        <div className="services">
-          <h4>Services</h4>
-          {settings.services.map((service, index) => (
-            <div key={index} className="service">
-              <input
-                type="text"
-                name={`service${index}`}
-                defaultValue={service.service}
-              />
-              <input
-                type="number"
-                name={`rate${index}`}
-                defaultValue={service.rate}
-              />
-            </div>
-          ))}
-          <div className="add-service">
-            {/* <button onClick={addNewService}>Add service</button> */}
-          </div>
-
-          <div className="newclient-buttons">
-            <button>Save</button>
-          </div>
-
+        <div className="newclient-buttons">
+          <button>Save</button>
         </div>
       </form>
     </div>
