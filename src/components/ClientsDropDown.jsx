@@ -1,10 +1,14 @@
-const ClientsDropDown = ({ clients, setSelectedClient }) => {
+const ClientsDropDown = ({ clients, setInvoice }) => {
+
+    const handleSetClient = (e) => {
+      setInvoice((prev) => ({ ...prev, client: e.target.value }));
+    }
 
     return ( 
-        <select defaultValue="" onChange={(e) => setSelectedClient(e.target.value)}>
+        <select defaultValue="" onChange={(e) => handleSetClient(e)}>
         <option value="" disabled selected>Select client</option>
         {clients.map((client) => (
-          <option key={client.id} value={client.id}>
+          <option key={client.id} value={client.name}>
             {client.name}
           </option>
         ))}

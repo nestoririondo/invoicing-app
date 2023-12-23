@@ -20,18 +20,6 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
     setTemplate(event.target.value);
   };
 
-  const [selectedClient, setSelectedClient] = useState("");
-
-  const theClient = clients.find((client) => client.id === selectedClient);
-
-  // event handlers for invoice info
-  const [invNum, setInvNum] = useState("");
-  const [itemRate, setItemRate] = useState(settings.services[0] ? settings.services[0].rate : "");
-  const [itemQuantity, setItemQuantity] = useState(0);
-  const [itemService, setItemService] = useState(settings.services[0] ? settings.services[0].service : "");
-  const [itemDescription, setItemDescription] = useState("");
-  const [tax, setTax] = useState(19);
-
   // export function (buggy)
   const exportPDF = () => {
     const input = document.querySelector(".new-invoice");
@@ -48,41 +36,74 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
   };
   // export function (buggy)
 
+
   const today = new Date().toISOString().slice(0, 10);
   const dueDate = new Date();
   dueDate.setMonth(dueDate.getMonth() + 1);
   const dueDateString = dueDate.toISOString().slice(0, 10);
 
-  const handleInvNumChange = (event) => {
-    setInvNum(event.target.value);
+  // THE event handler
+  const [invoice, setInvoice] = useState({
+    num: "",
+    client: "",
+    date: { created: today, due: dueDateString, paid: "" },
+    services: [
+      {
+        service: settings.services[0] ? settings.services[0].service : "",
+        description: "",
+        rate: settings.services[0] ? settings.services[0].rate : "",
+        quantity: 0,
+      },
+    ],
+    tax: 19,
+  });
+
+  //
+
+  const handleSetInvNum = (e) => {
+    setInvoice((prev) => ({ ...prev, num: e.target.value }));
+  };
+
+  const handleSetDate = (event) => {
+    setInvoice({
+      ...invoice,
+      date: {
+        ...invoice.date,
+        created: event.target.value
+      }
+    });
+  };
+
+  const handleSetDueDate = (event) => {
+    setInvoice({
+      ...invoice,
+      date: {
+        ...invoice.date,
+        due: event.target.value
+      }
+    });
   };
 
   const handleSetTax = (e) => {
-    setTax(e.target.value);
+    setInvoice((prev) => ({ ...prev, tax: e.target.value }));
   };
 
   const handleCreateInvoice = (event) => {
     event.preventDefault();
-    if (!invNum) {
+    if (!invoice.num) {
       alert("Please enter invoice number");
       return;
     }
-    if (!selectedClient) {
+    if (!invoice.client) {
       alert("Please select a client");
       return;
     }
-    const newInvoice = {
-      num: invNum,
-      client: theClient.name,
-      date: { created: today, due: dueDateString, paid: "" },
-      services: [
-        { service: itemService, description: itemDescription, rate: itemRate, quantity: itemQuantity },
-      ],
-      tax: tax,
-    };
-    setInvoices((prev) => [...prev, newInvoice]);
+    
+    setInvoices((prev) => [...prev, invoice]);
     alert("Invoice created");
   };
+
+  const theClient = clients.find((client) => client.name === invoice.client);
 
   return (
     <div className="invoice-wrapper">
@@ -92,7 +113,7 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
       <div className="invoice-button-wrapper">
         <ClientsDropDown
           clients={clients}
-          setSelectedClient={setSelectedClient}
+          setInvoice={setInvoice}
           className="clients-dropdown"
         />
         <select onChange={handleTemplateChange}>
@@ -108,12 +129,12 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
       {/* Invoice */}
       <div className={`new-invoice ${template}`}>
         <div className="inv-num-wrapper">
-          <p>{invNum}</p>
+          <p>{invoice.num}</p>
         </div>
         <div className="my-info-wrapper"></div>
         <MyInfo settings={settings} />
         <div className="client-info-wrapper">
-          {theClient ? (
+          {invoice.client ? (
             <ClientInfo theClient={theClient} />
           ) : (
             <p className="no-client-selected">
@@ -127,37 +148,31 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
               className="invoice-num"
               type="text"
               placeholder="Invoice No."
-              onChange={handleInvNumChange}
+              onChange={handleSetInvNum}
               autoFocus
             />
           </div>
           <div className="invoice-date-wrapper">
-            <input className="invoice-date" type="date" defaultValue={today} />
+            <input className="invoice-date" type="date" defaultValue={today} onChange={handleSetDate}/>
           </div>
           <div className="invoice-due-wrapper">
             <input
               className="invoice-due"
               type="date"
               defaultValue={dueDateString}
+              onChange={handleSetDueDate}
             />
           </div>
         </div>
         <div className="invoice-table-wrapper">
           <InvoiceTable
-            setItemRate={setItemRate}
-            setItemQuantity={setItemQuantity}
-            setItemService={setItemService}
-            setItemDescription={setItemDescription}
-            itemRate={itemRate}
-            itemQuantity={itemQuantity}
-            itemService={itemService}
+            invoice={invoice}
+            setInvoice={setInvoice}
             settings={settings}
           />
           <InvoiceTableExtra
-            itemRate={itemRate}
-            itemQuantity={itemQuantity}
+            invoice={invoice}
             handleSetTax={handleSetTax}
-            tax={tax}
           />
         </div>
         <div className="contact-wrapper">

@@ -10,6 +10,11 @@ const EditCompanyServices = ({ settings, setSettings }) => {
   };
 
   const saveService = (e) => {
+    if (e.target.parentElement.children[0].value === "") {
+      alert("Service name cannot be empty");
+      return;
+    }
+
     const serviceIndex = e.target.id;
     const serviceName = e.target.parentElement.children[0].value;
     const serviceRate = e.target.parentElement.children[1].children[0].value;
@@ -28,23 +33,25 @@ const EditCompanyServices = ({ settings, setSettings }) => {
       bank: settings.bank,
       ustidnr: settings.ustidnr,
     };
-    setSettings(newSettings);        
+    setSettings(newSettings);
   };
 
-    const deleteService = (e) => {
-        const serviceIndex = parseInt(e.target.id, 10);
-        const newServices = services.filter((service, index) => index !== serviceIndex);
-        setServices(newServices);
-        const newSettings = {
-            name: settings.name,
-            address: settings.address,
-            services: newServices,
-            contact: settings.contact,
-            bank: settings.bank,
-            ustidnr: settings.ustidnr,
-        };
-        setSettings(newSettings);
-    }
+  const deleteService = (e) => {
+    const serviceIndex = parseInt(e.target.id, 10);
+    const newServices = services.filter(
+      (service, index) => index !== serviceIndex
+    );
+    setServices(newServices);
+    const newSettings = {
+      name: settings.name,
+      address: settings.address,
+      services: newServices,
+      contact: settings.contact,
+      bank: settings.bank,
+      ustidnr: settings.ustidnr,
+    };
+    setSettings(newSettings);
+  };
 
   return (
     <div className="services">
@@ -65,14 +72,26 @@ const EditCompanyServices = ({ settings, setSettings }) => {
               defaultValue={service.rate}
             />
           </label>
-          <button id={index} className="savebtn" onClick={(e) => saveService(e)}>
+          <button
+            id={index}
+            className="savebtn"
+            onClick={(e) => saveService(e)}
+          >
             Save
           </button>
-          <button id={index} className="deletebtn" onClick={(e) => deleteService(e)}>Delete</button>
+          <button
+            id={index}
+            className="deletebtn"
+            onClick={(e) => deleteService(e)}
+          >
+            Delete
+          </button>
         </div>
       ))}
       <div className="add-service">
-        <button className="addservicebtn" onClick={addNewService}>Add service</button>
+        <button className="addservicebtn" onClick={addNewService}>
+          Add service
+        </button>
       </div>
     </div>
   );

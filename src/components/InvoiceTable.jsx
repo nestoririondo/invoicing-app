@@ -1,33 +1,27 @@
+import React from "react";
+import InvoiceTableRow from "./InvoiceTableRow";
+
 const InvoiceTable = ({
-  setItemRate,
-  setItemQuantity,
-  setItemService,
-  setItemDescription,
-  itemRate,
-  itemQuantity,
+  invoice,
+  setInvoice,
   settings,
 }) => {
-  const handleSetRate = (e) => {
-    setItemRate(e.target.value);
-  };
 
-  const handleSetQuantity = (e) => {
-    setItemQuantity(e.target.value);
-  };
-
-  const handleSetService = (e) => {
-    setItemService(e.target.value);
-    const seviceInSettings = settings.services.find(
-      (service) => service.service === e.target.value
-    );
-    setItemRate(seviceInSettings.rate);
-  };
-
-  const handleSetDescription = (e) => {
-    setItemDescription(e.target.value);
+  const handleAddTableRow = () => {
+    const newTableRow = {
+      service: settings.services[0] ? settings.services[0].service : "",
+      description: "",
+      rate: settings.services[0] ? settings.services[0].rate : "",
+      quantity: 0,
+    };
+    setInvoice({
+      ...invoice,
+      services: [...invoice.services, newTableRow],
+    });
   };
 
   return (
+    <>
     <table className="invoice-table">
       <thead>
         <tr>
@@ -39,48 +33,21 @@ const InvoiceTable = ({
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>
-            <select onChange={handleSetService}>
-              {settings.services.map((service, index) => (
-                <option key={index} value={service.service}>
-                  {service.service}
-                </option>
-              ))}
-            </select>
-          </td>
-          <td>
-            <input
-              className="description-input"
-              type="text"
-              placeholder="Description"
-              onChange={handleSetDescription}
-            />
-          </td>
-          <td>
-            <input
-              className="rate-input"
-              type="number"
-              step="0.01"
-              onChange={handleSetRate}
-              min="0"
-              value={itemRate}
-            />
-          </td>
-          <td>
-            <input
-              className="quantity-input"
-              type="number"
-              onChange={handleSetQuantity}
-              min="0"
-            />
-          </td>
-          <td className="total-input">
-            {(itemRate * itemQuantity).toFixed(2)} €
-          </td>
-        </tr>
+        {invoice.services.map((item, index) => (
+          <InvoiceTableRow
+            key={index}
+            index={index}
+            item={item}
+            setInvoice={setInvoice}
+            invoice={invoice}
+            settings={settings}
+          />
+        ))}
+        
       </tbody>
     </table>
+    <button className="add-table-row-btn" onClick={handleAddTableRow}>Add row</button>
+    </>
   );
 };
 
