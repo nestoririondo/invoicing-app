@@ -23,7 +23,6 @@ const InvoiceTableExtra = ({ invoice, handleSetTax, setInvoice, settings }) => {
 
   return (
     <table className="invoice-table-extra">
-      <tbody>
         <tr className="subtotal">
         <td>
             <button className="add-table-row-btn" onClick={handleAddTableRow}>
@@ -50,7 +49,6 @@ const InvoiceTableExtra = ({ invoice, handleSetTax, setInvoice, settings }) => {
         <tr className="total">
           <td>{`${(subtotal + tax).toFixed(2)} €`}</td>
         </tr>
-      </tbody>
     </table>
   );
 };

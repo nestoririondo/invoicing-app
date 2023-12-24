@@ -221,19 +221,20 @@ width: 15%;
   padding: 0 0.5rem 0 0.5rem;
 }
 
+.t1 tr.subtotal{
+  /* height: 0rem; */
+}
+
 .t1 .invoice-table-extra .subtotal .subtotal-label::before {
   content: "Subtotal";
   margin-right: 1rem;
 }
 
-.add-table-row-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  padding: 5px;
+.t1 button.add-table-row-btn {
+  margin-top: 0;
+  padding: 10px 15px;
   font-weight: bold;
-  border: 1px solid #ddd;
+  border: none;
   border-radius: 5px;
   background-color: #55bfe9;
   cursor: pointer;
