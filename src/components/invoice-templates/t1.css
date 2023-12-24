@@ -1,9 +1,6 @@
-:root {
+.t1 {
   --light-gray: #f5f5f5;
   --secondary-color: #7ee8c6;
-}
-
-.t1 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
@@ -207,11 +204,35 @@ width: 15%;
   padding: 0.5rem;
 }
 
-.add-table-row-btn {
+.t1 .invoice-table-extra {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: right;
   margin-top: 1rem;
-  display: inline-block;
-  width: auto;
-  padding: 10px;
+  display: grid;
+  gap: 1rem;
+}
+.t1 .invoice-table-extra .subtotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--light-gray);
+  padding: 0 0.5rem 0 0.5rem;
+}
+
+.t1 .invoice-table-extra .subtotal .subtotal-label::before {
+  content: "Subtotal";
+  margin-right: 1rem;
+}
+
+.add-table-row-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  padding: 5px;
+  font-weight: bold;
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #55bfe9;
@@ -226,27 +247,6 @@ width: 15%;
 
 .invisible {
   display: none;
-}
-
-.t1 .invoice-table-extra {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-  text-align: right;
-  margin-top: 1rem;
-  display: grid;
-  gap: 1rem;
-}
-.t1 .invoice-table-extra .subtotal::before {
-  content: "Subtotal";
-  margin-right: 1rem;
-}
-.t1 .invoice-table-extra .subtotal {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  border-bottom: 1px solid var(--light-gray);
-  padding: 0.5rem;
 }
 
 .t1 .invoice-table-extra .tax td::before {
