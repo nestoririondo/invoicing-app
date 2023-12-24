@@ -8,7 +8,8 @@ const InvoiceList = ({invoices, clients}) => {
             <tr>
                 <th>#</th>
                 <th>Client</th>
-                <th>Amount</th>
+                <th>Total</th>
+                <th>Created</th>
                 <th>Due Date</th>
                 <th>Status</th>
             </tr>
@@ -17,7 +18,10 @@ const InvoiceList = ({invoices, clients}) => {
                     <tr>
                         <td>{invoice.num}</td>
                         <td>{invoice.client}</td>
-                        <td>Amount</td>
+                        <td>
+
+                        </td>
+                        <td>{invoice.date.created}</td>
                         <td>{invoice.date.due}</td>
                         {invoice.date.paid ? <td className="paid">Paid</td> : <td className="unpaid">Unpaid</td>}     
                     </tr>

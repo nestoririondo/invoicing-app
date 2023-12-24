@@ -1,4 +1,12 @@
 const InvoiceTableRow = ({ invoice, setInvoice, settings, index, item }) => {
+
+  const handleUpdateService = (property, value) => {
+    let updatedServices = invoice.services.map((service, i) => {
+      return i === index ? {...service, [property]: value} : service;
+    })
+    setInvoice({...invoice, services: updatedServices})
+  }
+
   const handleSetService = (e) => {
     const selectedService = settings.services.find(
       (service) => service.service === e.target.value
@@ -11,41 +19,6 @@ const InvoiceTableRow = ({ invoice, setInvoice, settings, index, item }) => {
             rate: selectedService.rate,
           }
         : service;
-    });
-
-    setInvoice({
-      ...invoice,
-      services: updatedServices,
-    });
-  };
-
-  const handleSetDescription = (e) => {
-    const updatedServices = invoice.services.map((service, i) => {
-      return i === index
-        ? { ...service, description: e.target.value }
-        : service;
-    });
-
-    setInvoice({
-      ...invoice,
-      services: updatedServices,
-    });
-  };
-
-  const handleSetRate = (e) => {
-    const updatedServices = invoice.services.map((service, i) => {
-      return i === index ? { ...service, rate: e.target.value } : service;
-    });
-
-    setInvoice({
-      ...invoice,
-      services: updatedServices,
-    });
-  };
-
-  const handleSetQuantity = (e) => {
-    const updatedServices = invoice.services.map((service, i) => {
-      return i === index ? { ...service, quantity: e.target.value } : service;
     });
 
     setInvoice({
@@ -70,7 +43,7 @@ const InvoiceTableRow = ({ invoice, setInvoice, settings, index, item }) => {
           className="description-input"
           type="text"
           placeholder="Description"
-          onChange={handleSetDescription}
+          onChange={(e)=> handleUpdateService("description", e.target.value)}
         />
       </td>
       <td>
@@ -78,7 +51,7 @@ const InvoiceTableRow = ({ invoice, setInvoice, settings, index, item }) => {
           className="rate-input"
           type="number"
           step="0.01"
-          onChange={handleSetRate}
+          onChange={(e) => handleUpdateService("rate", e.target.value)}
           min="0"
           value={invoice.services[index].rate}
         />
@@ -87,7 +60,7 @@ const InvoiceTableRow = ({ invoice, setInvoice, settings, index, item }) => {
         <input
           className="quantity-input"
           type="number"
-          onChange={handleSetQuantity}
+          onChange={(e) => handleUpdateService("quantity", e.target.value)}
           min="0"
         />
       </td>
