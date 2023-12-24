@@ -1,3 +1,4 @@
+import React from "react";
 import InvoiceTableRow from "./InvoiceTableRow";
 
 const InvoiceTable = ({
@@ -6,18 +7,7 @@ const InvoiceTable = ({
   settings,
 }) => {
 
-  const handleAddTableRow = () => {
-    const newTableRow = {
-      service: settings.services[0] ? settings.services[0].service : "",
-      description: "",
-      rate: settings.services[0] ? settings.services[0].rate : "",
-      quantity: 0,
-    };
-    setInvoice({
-      ...invoice,
-      services: [...invoice.services, newTableRow],
-    });
-  };
+
 
   return (
     <>
@@ -45,7 +35,6 @@ const InvoiceTable = ({
         
       </tbody>
     </table>
-    <button className="add-table-row-btn" onClick={handleAddTableRow}>+</button>
     </>
   );
 };

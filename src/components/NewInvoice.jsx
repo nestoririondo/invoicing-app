@@ -178,6 +178,8 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
           <InvoiceTableExtra
             invoice={invoice}
             handleSetTax={handleSetTax}
+            setInvoice={setInvoice}
+            settings={settings}
           />
         </div>
         <div className="contact-wrapper">
