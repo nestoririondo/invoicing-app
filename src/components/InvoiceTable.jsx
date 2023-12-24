@@ -1,4 +1,3 @@
-import React from "react";
 import InvoiceTableRow from "./InvoiceTableRow";
 
 const InvoiceTable = ({
@@ -46,7 +45,7 @@ const InvoiceTable = ({
         
       </tbody>
     </table>
-    <button className="add-table-row-btn" onClick={handleAddTableRow}>Add row</button>
+    <button className="add-table-row-btn" onClick={handleAddTableRow}>+</button>
     </>
   );
 };

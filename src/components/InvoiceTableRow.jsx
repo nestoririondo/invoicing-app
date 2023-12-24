@@ -3,13 +3,12 @@ const InvoiceTableRow = ({ invoice, setInvoice, settings, index, item }) => {
     const selectedService = settings.services.find(
       (service) => service.service === e.target.value
     );
-    console.log(item);
     const updatedServices = invoice.services.map((service, i) => {
       return i === index
         ? {
             ...service,
             service: e.target.value,
-            rate: selectedService ? selectedService.rate : service.rate,
+            rate: selectedService.rate,
           }
         : service;
     });
@@ -81,7 +80,7 @@ const InvoiceTableRow = ({ invoice, setInvoice, settings, index, item }) => {
           step="0.01"
           onChange={handleSetRate}
           min="0"
-          defaultValue={invoice.services[index].rate}
+          value={invoice.services[index].rate}
         />
       </td>
       <td>

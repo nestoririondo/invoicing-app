@@ -22,6 +22,10 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
 
   // export function (buggy)
   const exportPDF = () => {
+
+    // add className to add-table-row-btn
+    const addTableRowBtn = document.querySelector(".add-table-row-btn");
+    addTableRowBtn.classList.add("invisible");
     const input = document.querySelector(".new-invoice");
 
     html2canvas(input, { scale: window.devicePixelRatio }).then((canvas) => {
@@ -33,6 +37,7 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
       pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
       pdf.save("download.pdf");
     });
+    addTableRowBtn.classList.remove("invisible");
   };
   // export function (buggy)
 
