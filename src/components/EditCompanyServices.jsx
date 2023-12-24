@@ -1,56 +1,59 @@
-import React, { useState } from "react";
 import "./Settings.css";
 
 const EditCompanyServices = ({ settings, setSettings }) => {
-  const [services, setServices] = useState(settings.services);
+
+  const services = settings.services;
 
   const addNewService = () => {
-    const newService = { service: "", rate: 0 };
-    setServices([...services, newService]);
-  };
-
-  const saveService = (e) => {
-    if (e.target.parentElement.children[0].value === "") {
-      alert("Service name cannot be empty");
-      return;
-    }
-
-    const serviceIndex = e.target.id;
-    const serviceName = e.target.parentElement.children[0].value;
-    const serviceRate = e.target.parentElement.children[1].children[0].value;
-    const newService = {
-      service: serviceName,
-      rate: serviceRate,
-    };
-    const newServices = [...services];
-    newServices[serviceIndex] = newService;
-    setServices(newServices);
-    const newSettings = {
+    const newServices = [
+      ...services    ,
+      {
+        service: "",
+        rate: 0,
+      },
+    ];
+    setSettings({
       name: settings.name,
       address: settings.address,
       services: newServices,
       contact: settings.contact,
       bank: settings.bank,
       ustidnr: settings.ustidnr,
-    };
-    setSettings(newSettings);
+    });
   };
+
+  const setService = (key) => (e) => {
+    const serviceIndex = parseInt(e.target.name.slice(-1), 10);
+    const newServices = services.map((service, index) => {
+      if (index !== serviceIndex) return service;
+      return {
+        ...service,
+        [key]: e.target.value,
+      };
+    });
+    setSettings({
+      name: settings.name,
+      address: settings.address,
+      services: newServices,
+      contact: settings.contact,
+      bank: settings.bank,
+      ustidnr: settings.ustidnr,
+    });
+  }
 
   const deleteService = (e) => {
     const serviceIndex = parseInt(e.target.id, 10);
     const newServices = services.filter(
       (service, index) => index !== serviceIndex
     );
-    setServices(newServices);
-    const newSettings = {
+    setSettings({
       name: settings.name,
       address: settings.address,
       services: newServices,
       contact: settings.contact,
       bank: settings.bank,
       ustidnr: settings.ustidnr,
-    };
-    setSettings(newSettings);
+    });
   };
 
   return (
@@ -62,6 +65,7 @@ const EditCompanyServices = ({ settings, setSettings }) => {
             type="text"
             name={`service${index}`}
             defaultValue={service.service}
+            onChange={setService("service")}
           />
           <label htmlFor={`rate${index}`}>
             Rate in €
@@ -70,15 +74,9 @@ const EditCompanyServices = ({ settings, setSettings }) => {
               step="0.01"
               name={`rate${index}`}
               defaultValue={service.rate}
+              onChange={setService("rate")}
             />
           </label>
-          <button
-            id={index}
-            className="savebtn"
-            onClick={(e) => saveService(e)}
-          >
-            Save
-          </button>
           <button
             id={index}
             className="deletebtn"

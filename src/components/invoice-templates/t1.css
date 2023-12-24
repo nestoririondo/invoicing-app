@@ -209,6 +209,8 @@ width: 15%;
 
 .add-table-row-btn {
   margin-top: 1rem;
+  display: inline-block;
+  width: auto;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -220,6 +222,10 @@ width: 15%;
   &:active {
       background-color: #3e93c3;
   }
+}
+
+.invisible {
+  display: none;
 }
 
 .t1 .invoice-table-extra {

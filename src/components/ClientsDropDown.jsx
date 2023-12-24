@@ -6,7 +6,7 @@ const ClientsDropDown = ({ clients, setInvoice }) => {
 
     return ( 
         <select defaultValue="" onChange={(e) => handleSetClient(e)}>
-        <option value="" disabled selected>Select client</option>
+        <option value="" disabled defaultValue>Select client</option>
         {clients.map((client) => (
           <option key={client.id} value={client.name}>
             {client.name}

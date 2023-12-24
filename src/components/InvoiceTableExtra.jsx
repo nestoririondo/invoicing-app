@@ -29,7 +29,7 @@ const InvoiceTableExtra = ({ invoice, handleSetTax }) => {
           </td>
         </tr>
         <tr className="total">
-          {`${(subtotal + tax).toFixed(2)} €`}
+        <td>{`${(subtotal + tax).toFixed(2)} €`}</td>
         </tr>
       </tbody>
     </table>
