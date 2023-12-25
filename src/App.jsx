@@ -11,7 +11,9 @@ import "./App.css";
 
 function App() {
 
-  const [invoices, setInvoices] = useState([
+  const [invoices, setInvoices] = useState(() => {
+    let localInvoices = localStorage.getItem('localInvoices');
+    return localInvoices ? JSON.parse(localInvoices) : [
     {
       num: "INV-2021-0001",
       client: "Example Client 1",
@@ -28,7 +30,8 @@ function App() {
       services: [{ service: "Tanslation", rate: 30, quantity: 15 }, { service: "Proofreading", rate: 30, quantity: 53 }],
       tax: 19,
     },
-  ]);
+  ]});
+  
 
   const [clients, setClients] = useState(() => {
     let localClients = localStorage.getItem('localClients');
@@ -69,7 +72,6 @@ function App() {
 
   useEffect(() => {localStorage.setItem('localInvoices', JSON.stringify(invoices))},[invoices])
 
-
   return (
     <div className="app">
       <Router>
@@ -80,7 +82,7 @@ function App() {
               <NewInvoice invoices={invoices} clients={clients} setInvoices={setInvoices} settings={settings}/>
             </Route>
             <Route path="/invoices">
-              <InvoiceList invoices={invoices} clients={clients}/>
+              <InvoiceList invoices={invoices} clients={clients} settings={settings}/>
             </Route>
             <Route path="/clients">
               <ClientsList clients={clients} setClients={setClients} />

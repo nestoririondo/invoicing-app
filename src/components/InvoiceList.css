@@ -14,16 +14,21 @@
 .invoice-list>table th {
     text-align: left;
     padding: 0.5rem;
-    border-bottom: 1px solid #ddd;
     background-color: #41da90;
 }
 
-.invoice-list>table td {
+.invoice-list>table th:nth-child(1) {
+    width: 10%;
+}
+
+.invoice-list .invoice-item td {
     padding: 0.5rem;
     border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
     cursor: pointer;
 }
 
-.invoice-list>table tr:hover {
+.invoice-item:hover {
     background-color: #ccc;
 }
+

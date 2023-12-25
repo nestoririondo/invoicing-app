@@ -7,8 +7,6 @@ const InvoiceTable = ({
   settings,
 }) => {
 
-
-
   return (
     <>
     <table className="invoice-table">
