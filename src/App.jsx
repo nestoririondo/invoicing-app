@@ -82,7 +82,7 @@ function App() {
               <NewInvoice invoices={invoices} clients={clients} setInvoices={setInvoices} settings={settings}/>
             </Route>
             <Route path="/invoices">
-              <InvoiceList invoices={invoices} clients={clients}/>
+              <InvoiceList invoices={invoices} clients={clients} settings={settings}/>
             </Route>
             <Route path="/clients">
               <ClientsList clients={clients} setClients={setClients} />

@@ -113,7 +113,12 @@
   margin-bottom: 0.5rem;
   margin-right: 1rem;
 }
-
+.t1 .invoice-num-wrapper div,
+.t1 .invoice-date-wrapper div,
+.t1 .invoice-due-wrapper div {
+  display:inline;
+  margin-right: ;
+}
 .t1 .invoice-date-wrapper::before {
   content: "Invoice Date";
   margin-top: 0.5rem;
@@ -128,6 +133,7 @@
   font-size: 1rem;
   background-color: var(--light-gray);
 }
+
 
 .t1 .invoice-due-wrapper::before {
   content: "Due Date";

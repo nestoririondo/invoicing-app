@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./InvoiceList.css";
+import InvoiceDocument from "./InvoiceDocument";
 
-const InvoiceList = ({ invoices, clients }) => {
+const InvoiceList = ({ invoices, clients, settings }) => {
   const [expandView, setExpandView] = useState([]);
 
   const handleToggle = (index) => {
@@ -14,7 +15,7 @@ const InvoiceList = ({ invoices, clients }) => {
     <div className="invoice-list">
       <h2>Invoices</h2>
       <table>
-        <tr>
+        <tr className="invoice-heading">
           <th>#</th>
           <th>Client</th>
           <th>Total</th>
@@ -51,7 +52,8 @@ const InvoiceList = ({ invoices, clients }) => {
                 <tr>
                   <td colSpan="6">
                     <div className="expanded-view-div">
-                      {invoice.services.map((service, index) => {
+                      {
+                        /* {invoice.services.map((service, index) => {
                         return (
                           <div key={index}>
                             <p>{service.service}</p>
@@ -63,7 +65,14 @@ const InvoiceList = ({ invoices, clients }) => {
                             </p>
                           </div>
                         );
-                      })}
+                      })} */
+                        <InvoiceDocument
+                          invoices={invoices}
+                          index={index}
+                          clients={clients}
+                          settings={settings}
+                        />
+                      }
                     </div>
                   </td>
                 </tr>
