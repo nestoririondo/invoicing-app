@@ -1,8 +1,5 @@
 const ClientInfo = ({theClient}) => {
-
-
-    console.log(theClient)
-
+    
     return ( 
         <div className="client-info">
             <p className="client-name">{theClient.name}</p>

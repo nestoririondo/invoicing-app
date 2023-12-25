@@ -23,9 +23,13 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
   // export function (buggy)
   const exportPDF = () => {
 
-    // add className to add-table-row-btn
+    // add className to add-table-row-btn to turn it invisible
     const addTableRowBtn = document.querySelector(".add-table-row-btn");
-    addTableRowBtn.classList.add("invisible");
+    addTableRowBtn && addTableRowBtn.classList.add("invisible");
+    const removeTableRowBtn = document.querySelector(".remove-table-row-btn");
+    removeTableRowBtn && removeTableRowBtn.classList.add("invisible");
+    
+    
     const input = document.querySelector(".new-invoice");
 
     html2canvas(input, { scale: window.devicePixelRatio }).then((canvas) => {
@@ -35,9 +39,10 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
       pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-      pdf.save("download.pdf");
+      pdf.save(`invoice-${invoice.num}`);
     });
-    addTableRowBtn.classList.remove("invisible");
+    addTableRowBtn && addTableRowBtn.classList.remove("invisible"); // turn it visible again
+    removeTableRowBtn && removeTableRowBtn.classList.remove("invisible"); // turn it visible again
   };
   // export function (buggy)
 

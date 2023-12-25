@@ -21,34 +21,51 @@ const InvoiceTableExtra = ({ invoice, handleSetTax, setInvoice, settings }) => {
     });
   };
 
+  const handleRemoveTableRow = () => {
+    invoice.services.pop();
+    setInvoice({
+      ...invoice,
+      services: invoice.services,
+    });
+  };
+
   return (
     <table className="invoice-table-extra">
-        <tr className="subtotal">
+      <tr className="subtotal">
         <td>
+          {invoice.services.length > 6 ? null : (
             <button className="add-table-row-btn" onClick={handleAddTableRow}>
               +
             </button>
-          </td>
-          <div className="subtotal-label-value">
+          )}
+          {invoice.services.length > 1 ? (
+            <button
+              className="remove-table-row-btn"
+              onClick={handleRemoveTableRow}
+            >
+              -
+            </button>
+          ) : null}
+        </td>
+        <div className="subtotal-label-value">
           <td className="subtotal-label"></td>
           <td className="subtotal-value">{`${subtotal} €`}</td>
-          </div>
-
-        </tr>
-        <tr className="tax">
-          <td>
-            <input
-              type="number"
-              min="0"
-              onChange={(e) => handleSetTax(e)}
-              defaultValue="19"
-            />
-            <div className="tax-value">{`${tax} €`}</div>
-          </td>
-        </tr>
-        <tr className="total">
-          <td>{`${(subtotal + tax).toFixed(2)} €`}</td>
-        </tr>
+        </div>
+      </tr>
+      <tr className="tax">
+        <td>
+          <input
+            type="number"
+            min="0"
+            onChange={(e) => handleSetTax(e)}
+            defaultValue="19"
+          />
+          <div className="tax-value">{`${tax} €`}</div>
+        </td>
+      </tr>
+      <tr className="total">
+        <td>{`${(subtotal + tax).toFixed(2)} €`}</td>
+      </tr>
     </table>
   );
 };
