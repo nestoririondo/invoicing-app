@@ -6,7 +6,6 @@ const BankInfo = ({settings}) => {
             <div className="bank-bic">{settings.bank.bic}</div>
         </div>
      )
-    ;
 }
 
 export default BankInfo;

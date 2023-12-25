@@ -246,6 +246,22 @@ width: 15%;
   }
 }
 
+.t1 button.remove-table-row-btn {
+  margin: 0 0 0 1rem;
+  padding: 10px 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  background-color: #e95555;
+  cursor: pointer;
+  &:hover {
+      background-color: #d64f4f;
+  }
+  &:active {
+      background-color: #c33e3e;
+  }
+}
+
 .invisible {
   display: none;
 }
