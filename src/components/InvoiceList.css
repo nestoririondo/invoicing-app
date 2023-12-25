@@ -19,6 +19,11 @@
 }
 
 .invoice-list>table td {
+    width: 100px;
+    
+}  
+
+.invoice-list>table td {
     padding: 0.5rem;
     border-bottom: 1px solid #ddd;
     cursor: pointer;
@@ -26,4 +31,10 @@
 
 .invoice-list>table tr:hover {
     background-color: #ccc;
+}
+
+.expanded-view-div {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
 }

@@ -11,7 +11,9 @@ import "./App.css";
 
 function App() {
 
-  const [invoices, setInvoices] = useState([
+  const [invoices, setInvoices] = useState(() => {
+    let localInvoices = localStorage.getItem('localInvoices');
+    return localInvoices ? JSON.parse(localInvoices) : [
     {
       num: "INV-2021-0001",
       client: "Example Client 1",
@@ -28,7 +30,8 @@ function App() {
       services: [{ service: "Tanslation", rate: 30, quantity: 15 }, { service: "Proofreading", rate: 30, quantity: 53 }],
       tax: 19,
     },
-  ]);
+  ]});
+  
 
   const [clients, setClients] = useState(() => {
     let localClients = localStorage.getItem('localClients');
@@ -68,7 +71,6 @@ function App() {
   }, [clients]);
 
   useEffect(() => {localStorage.setItem('localInvoices', JSON.stringify(invoices))},[invoices])
-
 
   return (
     <div className="app">

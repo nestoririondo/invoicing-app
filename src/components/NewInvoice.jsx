@@ -45,8 +45,7 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
     removeTableRowBtn && removeTableRowBtn.classList.remove("invisible"); // turn it visible again
   };
   // export function (buggy)
-
-
+  
   const today = new Date().toISOString().slice(0, 10);
   const dueDate = new Date();
   dueDate.setMonth(dueDate.getMonth() + 1);
@@ -107,7 +106,7 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
     if (!invoice.client) {
       alert("Please select a client");
       return;
-    }
+    } 
     
     setInvoices((prev) => [...prev, invoice]);
     alert("Invoice created");
