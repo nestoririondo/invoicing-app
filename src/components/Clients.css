@@ -8,21 +8,7 @@
     grid-gap: 1rem;
     margin: 1rem 0;
 }
-.add-client-btn {
-    padding: 0.5rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    background-color: #41da90;
-    margin-top: 1rem;
-    &:hover {
-        background-color: #ccc;
-    }
-    &:active {
-        transform: scale(0.9);
-    }
-}
+
 .client-card {
     max-width: 400px;
     width: 100%;
@@ -40,18 +26,6 @@
 
 .client-card-delete-btn {
     align-self: flex-end;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #c44d40;
-    color: #000000;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    /* visibility: hidden; */
-    &:hover {
-        background-color: #ccc;
-    };
-   
 }
 
 .visible {
@@ -82,26 +56,6 @@
     margin-top: 1rem;
     gap: 1rem;
 }
-
-.newclient-buttons button {
-    width: 100%;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #41da90;
-    color: #000000;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    & :hover {
-        background-color: #ccc;
-    }
-}
-.newclient-buttons .clearbtn {
-    background-color: #a3a3a3;
-}
-.newclient-buttons .cancelbtn {
-    background-color: #b75050;
-}   
 
 .zipcountry {
     display: flex;

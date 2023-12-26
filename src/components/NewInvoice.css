@@ -12,21 +12,19 @@
     display: flex;
     max-width: 210mm;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
     margin-bottom: 1rem;
 }
 .invoice-button-wrapper select {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    margin-bottom: 10px;
 }
 
 .invoice-button-wrapper option {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    margin-bottom: 10px;
 }
 
 .save-export-wrapper {
@@ -34,15 +32,6 @@
     justify-content: flex-end;
     gap: 1rem;
 }   
-
-.save-export-wrapper button {
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #41da90;
-    color: #000;
-    cursor: pointer;
-}
 
 .new-invoice {
     width: 210mm;

@@ -131,8 +131,8 @@ const NewInvoice = ({ clients, settings, invoices, setInvoices }) => {
           <option value="t3">Template 3</option>
         </select>
         <div className="save-export-wrapper">
-          <button onClick={handleCreateInvoice}>Save</button>
-          <button onClick={exportPDF}>Export to PDF</button>
+          <button className="green-btn" onClick={handleCreateInvoice}>Save</button>
+          <button className="blue-btn" onClick={exportPDF}>Export to PDF</button>
         </div>
       </div>
       {/* Invoice */}

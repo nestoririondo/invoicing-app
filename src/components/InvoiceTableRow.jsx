@@ -1,11 +1,10 @@
 const InvoiceTableRow = ({ invoice, setInvoice, settings, index, item }) => {
-
   const handleUpdateService = (property, value) => {
     let updatedServices = invoice.services.map((service, i) => {
-      return i === index ? {...service, [property]: value} : service;
-    })
-    setInvoice({...invoice, services: updatedServices})
-  }
+      return i === index ? { ...service, [property]: value } : service;
+    });
+    setInvoice({ ...invoice, services: updatedServices });
+  };
 
   const handleSetService = (e) => {
     const selectedService = settings.services.find(
@@ -43,7 +42,7 @@ const InvoiceTableRow = ({ invoice, setInvoice, settings, index, item }) => {
           className="description-input"
           type="text"
           placeholder="Description"
-          onChange={(e)=> handleUpdateService("description", e.target.value)}
+          onChange={(e) => handleUpdateService("description", e.target.value)}
         />
       </td>
       <td>
@@ -65,10 +64,9 @@ const InvoiceTableRow = ({ invoice, setInvoice, settings, index, item }) => {
         />
       </td>
       <td className="total-input">
-        {(
+        {parseFloat(
           invoice.services[index].rate * invoice.services[index].quantity
-        ).toFixed(2)}{" "}
-        €
+        ).toLocaleString("de-DE", { style: "currency", currency: "EUR" })}
       </td>
     </tr>
   );

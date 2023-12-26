@@ -35,31 +35,19 @@
 .mark-as-paid {
     padding: 2rem 0.5rem 2rem 0.5rem;
     display: flex;
-    align-items: center;
+    align-items: baseline;
 }
 
 .mark-as-paid label {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     font-size: 1.2rem;
     font-weight: bold;
     gap: 1rem;
 }
 .mark-as-paid button {
-    padding: 10px 15px;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    background-color: #55bfe9;
-    cursor: pointer;
     display: block;
     margin-left: 304px;
-    &:hover {
-        background-color: #2b8ab8;
-    }
-    &:active {
-        background-color: #1e5a7d;
-    }
 }
 
 .paid-date-input {
