@@ -55,3 +55,53 @@ body {
     width: 100%;
     margin: 1rem;
 }
+.green-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    background-color: #41da90;
+    margin-top: 1rem;
+    &:hover {
+        background-color: #35ba7a;
+    }
+    &:active {
+        background-color: #2d9e67;
+        transform: scale(0.9);
+    }
+}
+
+.red-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    background-color: #cb594c;
+    margin-top: 1rem;
+    &:hover {
+        background-color: #b44f44;
+    }
+    &:active {
+        background-color: #aa493f;
+        transform: scale(0.9);
+    }
+}
+
+.blue-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    background-color: #55bfe9;
+    margin-top: 1rem;
+    &:hover {
+        background-color: #4aa9d6;
+    }
+    &:active {
+        background-color: #3e93c3;
+        transform: scale(0.9);
+    }
+}

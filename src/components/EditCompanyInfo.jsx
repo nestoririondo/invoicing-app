@@ -1,3 +1,4 @@
+import "../App.css";
 
 const EditCompanyInfo = ({ settings, setSettings }) => {
  
@@ -99,7 +100,7 @@ const EditCompanyInfo = ({ settings, setSettings }) => {
           <input type="text" name="bankbic" defaultValue={settings.bank.bic} />
         </div>
         <div className="newclient-buttons">
-          <button>Save</button>
+          <button className="green-btn">Save</button>
         </div>
       </form>
     </div>

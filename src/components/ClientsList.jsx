@@ -2,6 +2,7 @@ import { useState } from "react";
 import NewClientForm from "./NewClientForm";
 import ClientInfo from "./ClientInfo";
 import "./Clients.css";
+import "../App.css";
 
 
 const ClientsList = ({clients, setClients}) => {
@@ -23,7 +24,7 @@ const ClientsList = ({clients, setClients}) => {
     return ( 
         <div className='clients-list'>
             <h2>Clients</h2>
-            <button className="add-client-btn" onClick={createClient}>Add new client</button>
+            <button className="green-btn" onClick={createClient}>Add new client</button>
             <div className="client-grid">
                 {
                     creatingClient && <NewClientForm setClients={setClients} setCreatingClient={setCreatingClient} clients={clients}/>
@@ -31,7 +32,7 @@ const ClientsList = ({clients, setClients}) => {
             {clients.map((theClient) => (
                 <div className="client-card">
                     <ClientInfo key={theClient.id} theClient={theClient} />
-                    <button className={`client-card-delete-btn ${theClient.id}`} onClick={() => deleteClient(theClient.id)}>Delete</button>
+                    <button className={`client-card-delete-btn red-btn ${theClient.id}`} onClick={() => deleteClient(theClient.id)}>Delete</button>
                 </div>
             ))}
         </div>

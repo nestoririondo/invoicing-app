@@ -122,7 +122,7 @@ const InvoiceList = ({ invoices, clients, settings, setInvoices }) => {
                                 />
                               )}
                             </label>
-                            <button onClick={(e) => exportPDF(index)}>Export to PDF</button>
+                            <button className="blue-btn" onClick={(e) => exportPDF(index)}>Export to PDF</button>
                           </div>
                           <InvoiceDocument
                             invoices={invoices}

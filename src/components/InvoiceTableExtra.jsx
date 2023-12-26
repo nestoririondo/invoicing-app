@@ -1,12 +1,14 @@
 const InvoiceTableExtra = ({ invoice, handleSetTax, setInvoice, settings }) => {
-  const subtotal = parseFloat(
-    invoice.services
-      .map((service) => service.rate * service.quantity)
-      .reduce((a, b) => a + b, 0)
-      .toFixed(2)
-  );
+  const subtotal = invoice.services
+    .map((service) => service.rate * service.quantity)
+    .reduce((a, b) => a + b, 0)
+  const formattedSubtotal = subtotal.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
 
-  const tax = parseFloat((subtotal * (invoice.tax / 100)).toFixed(2));
+  const tax = subtotal * (invoice.tax / 100);
+  const formattedTax = tax.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
+
+  const total = subtotal + tax;
+  const formattedTotal = total.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
 
   const handleAddTableRow = () => {
     const newTableRow = {
@@ -34,13 +36,13 @@ const InvoiceTableExtra = ({ invoice, handleSetTax, setInvoice, settings }) => {
       <tr className="subtotal">
         <td>
           {invoice.services.length > 6 ? null : (
-            <button className="add-table-row-btn" onClick={handleAddTableRow}>
+            <button className="add-table-row-btn blue-btn" onClick={handleAddTableRow}>
               +
             </button>
           )}
           {invoice.services.length > 1 ? (
             <button
-              className="remove-table-row-btn"
+              className="remove-table-row-btn red-btn"
               onClick={handleRemoveTableRow}
             >
               -
@@ -49,7 +51,7 @@ const InvoiceTableExtra = ({ invoice, handleSetTax, setInvoice, settings }) => {
         </td>
         <div className="subtotal-label-value">
           <td className="subtotal-label"></td>
-          <td className="subtotal-value">{`${subtotal} €`}</td>
+          <td className="subtotal-value">{formattedSubtotal}</td>
         </div>
       </tr>
       <tr className="tax">
@@ -60,11 +62,11 @@ const InvoiceTableExtra = ({ invoice, handleSetTax, setInvoice, settings }) => {
             onChange={(e) => handleSetTax(e)}
             defaultValue="19"
           />
-          <div className="tax-value">{`${tax} €`}</div>
+          <div className="tax-value">{formattedTax}</div>
         </td>
       </tr>
       <tr className="total">
-        <td>{`${(subtotal + tax).toFixed(2)} €`}</td>
+        <td>{formattedTotal}</td>
       </tr>
     </table>
   );

@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import "../App.css"
 
 const NewClientForm = ({ setClients, setCreatingClient, clients }) => {
 
@@ -59,9 +60,9 @@ const NewClientForm = ({ setClients, setCreatingClient, clients }) => {
         <input type="text" name="country" placeholder="Country" />
         <input type="text" name="ustidnr" placeholder="UStIdNr" />
         <div className="newclient-buttons">
-            <button>Submit</button>
-            <button className="clearbtn" onClick={handleClear}>Clear</button>
-            <button className="cancelbtn" onClick={handleCancel}>Cancel</button>
+            <button className="green-btn">Submit</button>
+            <button className="blue-btn" onClick={handleClear}>Clear</button>
+            <button className="red-btn" onClick={handleCancel}>Cancel</button>
         </div>
       </form>
     </div>

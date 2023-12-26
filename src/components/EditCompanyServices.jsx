@@ -1,4 +1,5 @@
 import "./Settings.css";
+import "../App.css";
 
 const EditCompanyServices = ({ settings, setSettings }) => {
 
@@ -79,7 +80,7 @@ const EditCompanyServices = ({ settings, setSettings }) => {
           </label>
           <button
             id={index}
-            className="deletebtn"
+            className="red-btn"
             onClick={(e) => deleteService(e)}
           >
             Delete
@@ -87,7 +88,7 @@ const EditCompanyServices = ({ settings, setSettings }) => {
         </div>
       ))}
       <div className="add-service">
-        <button className="addservicebtn" onClick={addNewService}>
+        <button className="blue-btn" onClick={addNewService}>
           Add service
         </button>
       </div>
