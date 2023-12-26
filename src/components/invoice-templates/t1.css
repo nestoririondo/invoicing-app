@@ -192,7 +192,9 @@ width: 15%;
   padding: 0.5rem;
   border: 1px solid var(--light-gray);
 }
-
+.invoice-document .invoice-table tbody tr td{
+  padding: 1rem 0.5rem 1rem 0.5rem;
+}
 .t1 .invoice-table td:nth-child(5) {
   text-align: right;
 }
@@ -227,8 +229,11 @@ width: 15%;
   padding: 0 0.5rem 0 0.5rem;
 }
 
-.t1 tr.subtotal{
-  /* height: 0rem; */
+.invoice-document .subtotal-label-value {
+  margin-left: auto;
+  justify-content: flex-end;
+  padding: 0.5rem 0 0.5rem 0;
+
 }
 
 .t1 .invoice-table-extra .subtotal .subtotal-label::before {
@@ -295,6 +300,10 @@ width: 15%;
 
 .t1 .tax-value {
   display: inline;
+}
+
+.invoice-document .tax-value{
+  margin-left: 1rem;
 }
 
 .t1 .invoice-table-extra .tax td {

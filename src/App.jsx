@@ -19,7 +19,7 @@ function App() {
       client: "Example Client 1",
       id: uuidv4(),
       date: { created: "2021-01-01", due: "2021-01-31", paid: "" },
-      services: [{ service: "Tanslation", rate: 30, quantity: 10 }, { service: "Proofreading", rate: 30, quantity: 5 }],
+      services: [{ service: "Translation", description: "Product catalogue DE-ES translation", rate: 30, quantity: 10 }, { service: "Proofreading", description: "Proofreading of same document", rate: 30, quantity: 5 }],
       tax: 19,
     },
     {
@@ -27,7 +27,7 @@ function App() {
       client: "Example Client 2",
       id: uuidv4(),
       date: { created: "2023-02-01", due: "2024-02-28", paid: "" },
-      services: [{ service: "Tanslation", rate: 30, quantity: 15 }, { service: "Proofreading", rate: 30, quantity: 53 }],
+      services: [{ service: "Translation", description: "E-Learning EN-ES translation", rate: 30, quantity: 15 }, { service: "Proofreading", description: "Proofreading of previous jobs", rate: 30, quantity: 53 }],
       tax: 19,
     },
   ]});
@@ -82,7 +82,7 @@ function App() {
               <NewInvoice invoices={invoices} clients={clients} setInvoices={setInvoices} settings={settings}/>
             </Route>
             <Route path="/invoices">
-              <InvoiceList invoices={invoices} clients={clients} settings={settings}/>
+              <InvoiceList invoices={invoices} setInvoices={setInvoices} clients={clients} settings={settings}/>
             </Route>
             <Route path="/clients">
               <ClientsList clients={clients} setClients={setClients} />
