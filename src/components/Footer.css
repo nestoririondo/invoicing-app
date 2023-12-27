@@ -1,0 +1,47 @@
+.footer {
+    max-width: 1200px;
+    width: 100%;
+    margin: 5rem auto 0rem auto;
+    padding: 2rem 2rem;
+    background-color: #d3d3d3;
+    color: black;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10rem;
+  }
+  
+  .footer .about {
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: left;
+    flex: 0 1 50%;
+  }
+  
+  .footer .contact {
+      font-size: 1rem;
+      font-weight: normal;
+      text-align: center;
+      display: flex;
+      align-items: baseline;
+      margin-left: auto;
+      gap: 1rem;
+  }
+  
+  .footer .contact a{
+      color: #000000;
+      text-decoration: none;
+      &:hover{
+          color: #ffffff;
+      }
+  }
+  
+  .footer .contact img{
+      width: 2rem;
+      height: 2rem;
+      margin-right: 1rem;
+      &:hover{
+          transform: scale(1.1);
+          filter: invert(1) brightness(1.8);
+      }
+  }
