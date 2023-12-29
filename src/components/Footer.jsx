@@ -23,7 +23,7 @@ const Footer = () => {
             Néstor Iriondo
           </a>
         </p>
-        <a href="https://github.com/nestoririondo">
+        <a href="https://github.com/nestoririondo/invoicing-app">
           <img src={githubMark} />
         </a>
       </div>

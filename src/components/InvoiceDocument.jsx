@@ -3,8 +3,6 @@ import "./NewInvoice.css";
 import "./invoice-templates/t1.css";
 import MyInfo from "./MyInfo";
 import ClientInfo from "./ClientInfo";
-import InvoiceTable from "./InvoiceTable";
-import InvoiceTableExtra from "./InvoiceTableExtra";
 import ContactInfo from "./ContactInfo";
 import BankInfo from "./BankInfo";
 

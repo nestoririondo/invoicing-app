@@ -1,6 +1,6 @@
 import { useState } from "react";
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 import "./InvoiceList.css";
 import InvoiceDocument from "./InvoiceDocument";
 
@@ -30,7 +30,6 @@ const InvoiceList = ({ invoices, clients, settings, setInvoices }) => {
   };
 
   const exportPDF = (index) => {
-
     const input = document.querySelector(".invoice-document");
 
     html2canvas(input, { scale: window.devicePixelRatio }).then((canvas) => {
@@ -42,7 +41,18 @@ const InvoiceList = ({ invoices, clients, settings, setInvoices }) => {
       pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
       pdf.save(`invoice-${invoices[index].num}`);
     });
+  };
 
+  const deleteInvoice = (index) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this invoice?"
+    );
+    if (!confirmDelete) {
+      return;
+    }
+    const newArray = [...invoices];
+    newArray.splice(index, 1);
+    setInvoices(newArray);
   };
 
   return (
@@ -122,7 +132,20 @@ const InvoiceList = ({ invoices, clients, settings, setInvoices }) => {
                                 />
                               )}
                             </label>
-                            <button className="blue-btn" onClick={(e) => exportPDF(index)}>Export to PDF</button>
+                            <div className="delete-and-export">
+                              <button
+                                className="red-btn"
+                                onClick={() => deleteInvoice(index)}
+                              >
+                                Delete
+                              </button>
+                              <button
+                                className="blue-btn"
+                                onClick={(e) => exportPDF(index)}
+                              >
+                                Export to PDF
+                              </button>
+                            </div>
                           </div>
                           <InvoiceDocument
                             invoices={invoices}
