@@ -6,16 +6,17 @@
     background-color: #d3d3d3;
     color: black;
     text-align: center;
+    justify-content: space-between;
     display: flex;
     flex-wrap: wrap;
-    gap: 10rem;
+    gap: 3rem;
   }
   
   .footer .about {
     font-size: 1rem;
     font-weight: normal;
     text-align: left;
-    flex: 0 1 50%;
+    flex: 1 1 50%;
   }
   
   .footer .contact {
@@ -24,7 +25,6 @@
       text-align: center;
       display: flex;
       align-items: baseline;
-      margin-left: auto;
       gap: 1rem;
   }
   

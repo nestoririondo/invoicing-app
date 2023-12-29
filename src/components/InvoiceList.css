@@ -20,11 +20,11 @@
 .invoice-list>table th:nth-child(1) {
     width: 10%;
 }
-
+.invoice-list .invoice-item {
+    border: 1px solid #ddd;
+}
 .invoice-list .invoice-item td {
     padding: 0.5rem;
-    border-bottom: 1px solid #ddd;
-    border-top: 1px solid #ddd;
     cursor: pointer;
 }
 
@@ -45,13 +45,14 @@
     font-weight: bold;
     gap: 1rem;
 }
-.mark-as-paid button {
-    display: block;
-    margin-left: 304px;
-}
-
 .paid-date-input {
     padding: 0.5rem;
     width: 200px;
     font-size: 1rem;
+}
+
+.delete-and-export {
+    margin-left: 215px;
+    display: flex;
+    gap: 1rem;
 }
