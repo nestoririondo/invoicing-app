@@ -1,10 +1,4 @@
 # Invoicing app
-Built with React. Uses local storage and doesn't send any information to a server.
+Create and manages invoices. Built with React, uses local storage.
 
 Deployed: https://nestoririondo.github.io/invoicing-app
-
-
-Dependencies
-```
-npm i
-```
